@@ -1,0 +1,78 @@
+/* 弹窗的整体容器 */
+.willingness-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 650px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 弹窗的头部，包括标题和关闭按钮 */
+/* 修改弹窗的标题部分 */
+.willingness-modal-header {
+  display: flex;
+  justify-content: center; /* 让标题居中 */
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+/* 如果标题是 h2，设置居中的文本对齐方式 */
+.willingness-modal-header h2 {
+  font-size: 18px;
+  margin: 0;
+  color: #333;
+  text-align: center; /* 确保文本在标题内居中 */
+  width: 100%; /* 确保标题占据整个宽度 */
+}
+
+
+/* 关闭按钮的样式 */
+.willingness-modal-close-icon {
+  cursor: pointer;
+  color: #888;
+  transition: color 0.3s ease;
+}
+
+.willingness-modal-close-icon:hover {
+  color: #333;
+}
+
+/* 中心文本描述 */
+.willingness-modal p {
+  font-size: 14px;
+  text-align: center;
+  margin: 10px 0;
+  color: #555;
+}
+
+/* Slider 容器，居中显示 */
+.willingness-modal .MuiSlider-root {
+  width: 90%;
+  margin: 20px 0;
+}
+
+/* Submit 按钮样式 */
+.willingness-modal button {
+  margin-top: 20px;
+  width: 100px;
+  height: 40px;
+  font-size: 16px;
+  background-color: #4caf50; /* 绿色背景 */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.willingness-modal button:hover {
+  background-color: #45a049;
+}

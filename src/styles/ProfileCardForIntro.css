@@ -1,0 +1,78 @@
+/* ProfileCardForIntro.css */
+
+/* 整个卡片容器样式，设置固定宽度 */
+.profile-card-intro {
+  width: 200px;
+  margin: 20px;
+  padding: 20px;
+  background-color: #87ff4b1d;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* 优化名字显示的样式，使用个性字体 */
+.profile-card-intro-name {
+  font-family: "Pacifico", cursive; /* 使用个性字体 */
+  font-size: 2rem !important; /* 增大字体 */
+  color: #18b020; /* 使用醒目的蓝色 */
+  font-weight: bold; /* 加粗字体 */
+  margin-bottom: 10px; /* 增加下方的间距 */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* 添加更加明显的文本阴影 */
+  letter-spacing: 1.5px; /* 增加字母间距 */
+}
+
+/* 卡片头部样式，包含图片 */
+.profile-card-header-intro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+/* 头像样式，增加图片大小 */
+.profile-logo-intro {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+
+.profile-card-content-intro p {
+  margin: 10px 0;
+  font-size: 1rem;
+  color: #333;
+}
+
+.profile-card-content-intro strong {
+  font-weight: bold;
+}
+
+/* 卡片悬停效果 */
+.profile-card-intro:hover {
+  transform: scale(1.05); /* 悬停时放大 */
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* 页面容器样式 */
+.project-intro {
+  text-align: center;
+  padding: 40px;
+}
+
+.project-intro h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.project-intro p {
+  font-size: 1.2rem;
+  /* margin-bottom: 40px; */
+}
+
+/* 卡片容器，支持响应式布局 */
+.profile-cards-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}

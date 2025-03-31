@@ -1,0 +1,25 @@
+/* MessageInput.css */
+.messageInputSendButton {
+  background-color: #34b813 !important;
+  color: #fff !important;
+  padding: 6px 12px !important;
+  border-radius: 15px !important; /* 使按钮更加圆滑 */
+  border: none !important;
+  cursor: pointer !important;
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out !important;
+}
+
+.messageInputSendButton:hover {
+  background-color: #099e4e !important;
+  transform: scale(1.05) !important; /* 悬停时略微放大按钮 */
+}
+
+.messageInputSendButton:active {
+  background-color: #06772e !important;
+  transform: scale(0.95) !important; /* 点击时略微缩小按钮 */
+}
+
+.messageInputSendButton:disabled {
+  background-color: #ccc !important;
+  cursor: not-allowed !important;
+}

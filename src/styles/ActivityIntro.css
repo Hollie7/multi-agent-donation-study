@@ -1,0 +1,44 @@
+/* ActivityIntro.css */
+.activity-intro-container {
+  max-width: 600px;
+  margin-top: 500px;
+  margin: 0 auto;
+  padding: 40px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  /* position: fixed; */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.activity-intro-description {
+  /* width: 600px; */
+  text-align: left;
+  font-size: 18px;
+  margin: 0 auto;
+  padding: 30px;
+}
+
+.activity-intro-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 40px;
+  text-align: center;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.activity-intro-text {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.activity-intro-button {
+  display: block;
+  margin: 0 auto;
+}

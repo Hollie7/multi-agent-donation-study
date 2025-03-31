@@ -1,0 +1,92 @@
+/* Container for the entire component */
+.willing-help-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px; /* 调整上下左右的内边距，确保在屏幕上有足够的留白 */
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+/* Introduction Section */
+.introduction {
+  margin-bottom: 30px; /* 增加下方的间距 */
+  margin-top: 30px;
+  text-align: center;
+  font-size: 2.5rem; /* 增大标题字体，增强视觉效果 */
+}
+
+/* Help Sections Container */
+.help-sections {
+  margin-bottom: 80px; /* 增大每个部分的间距 */
+}
+
+/* Help Card Styling */
+.help-card {
+  transition: transform 0.2s, box-shadow 0.2s;
+  width: auto;
+  height: 500px;
+}
+
+.help-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+/* Willingness Content Section */
+.willing-help-content {
+  text-align: center;
+  margin-top: 100px; /* 增加与上方内容的间距 */
+}
+
+/* Willingness Slider Card */
+.willing-help-slider-card {
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 60px; /* 增加顶部间距 */
+  padding: 30px; /* 增加内部的填充间距 */
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  border: 4px solid rgba(179, 179, 179, 0.5);
+  background-color: rgba(255, 255, 255, 0.263);
+  transition: all 0.3s ease;
+}
+
+.willing-help-slider-card:hover {
+  border: 2px solid rgba(130, 130, 129, 0.8);
+  box-shadow: 0 8px 20px rgba(70, 255, 41, 0.3);
+  transform: scale(1.02);
+}
+
+/* Title Styling */
+.willing-help-title {
+  font-size: 28px; /* 增大字体 */
+  font-weight: bold;
+  color: #007bff;
+  margin-bottom: 30px; /* 增加下方的间距 */
+}
+
+/* Body Text Styling */
+.willing-help-text {
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 40px; /* 增加与下方滑块的间距 */
+}
+
+.introduction-text {
+  font-size: 20px; /* 增加字体大小 */
+  color: #555;
+  margin-top: 20px; /* 增大与上方标题的间距 */
+  margin-bottom: 20px;
+  line-height: 1.8; /* 增加行间距 */
+  /* max-width: 800px; */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Next Button Styling */
+.willing-help-button {
+  font-size: 16px;
+  margin-top: 40px;
+}
+

@@ -1,0 +1,28 @@
+/* 整个页面的容器样式 */
+.project-intro {
+  text-align: center;
+  padding: 40px;
+}
+
+.project-intro-description {
+  width: 600px;
+  text-align: left;
+  margin: 0 auto;
+}
+
+.project-intro h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.project-intro p {
+  font-size: 1.2rem;
+  /* margin-bottom: 40px; */
+}
+
+/* 卡片容器，支持响应式布局 */
+.profile-cards-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}

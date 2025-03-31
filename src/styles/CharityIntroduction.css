@@ -1,0 +1,76 @@
+/* CharityIntroduction.css */
+.charity-introduction-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+}
+
+.charity-introduction-content {
+  background: white;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  text-align: left;
+}
+
+.charity-introduction-title {
+  font-size: 2rem;
+  color: #343a40;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.charity-introduction-text {
+  font-size: 1rem;
+  color: #495057;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.charity-introduction-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.charity-introduction-button:hover {
+  background-color: #0056b3;
+}
+
+.charity-introduction-image {
+  width: 100%;
+  height: auto;
+  max-width: 800px; /* Ensures the image doesn't exceed a maximum width */
+  margin: 20px auto; /* Centers the image horizontally */
+  display: block; /* Ensures the image is treated as a block element */
+  border-radius: 8px; /* Adds some rounded corners to the image */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow for a 3D effect */
+}
+
+.charity-introduction-link {
+  display: inline-block;
+  margin-top: 20px;
+  font-size: 1.2rem;
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.charity-introduction-link:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+.charity-introduction-source {
+  font-size: 0.6rem;
+  color: #868e96;
+  margin-bottom: 20px;
+}

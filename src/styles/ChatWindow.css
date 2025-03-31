@@ -1,0 +1,60 @@
+/* ChatWindow.css */
+.chatWindowContainer {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  /* background-color: #f8f9fa; 更柔和的背景色 */
+}
+
+.chatWindow {
+  width: 800px !important;
+  background-color: #ffffff !important;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1) !important;
+  border-radius: 10px !important;
+  padding: 20px !important;
+}
+
+.chatWindowTitle {
+  text-align: center;
+  font-size: 1.2em;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.chatWindowButtons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.chatWindowButton {
+  background-color: #007bff !important; /* 蓝色背景 */
+  color: #fff !important; /* 白色文字 */
+  padding: 6px 12px !important; /* 增加内边距使按钮更大 */
+  border-radius: 25px !important; /* 更圆的边角 */
+  border: none !important; /* 去掉边框 */
+  cursor: pointer !important; /* 鼠标悬停时显示为指针 */
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out,
+    box-shadow 0.3s ease-in-out !important; /* 添加过渡效果 */
+}
+
+.MuiButtonBase-root.MuiButton-root.MuiButton-text.MuiButton-textPrimary.MuiButton-sizeMedium.MuiButton-textSizeMedium.chatWindowButton {
+  z-index: 1 !important;
+}
+
+.chatWindowButton:hover {
+  background-color: #0056b3 !important; /* 悬停时背景色变深 */
+  transform: translateY(-2px) !important; /* 悬停时略微上移 */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2) !important; /* 悬停时添加阴影效果 */
+}
+
+.chatWindowButton:active {
+  background-color: #003f7f !important; /* 点击时背景色更深 */
+  transform: translateY(0) !important; /* 点击时还原位置 */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1) !important; /* 点击时减少阴影 */
+}
+
+.chatWindowButton:disabled {
+  background-color: #ccc !important; /* 禁用时的灰色背景 */
+  cursor: not-allowed !important; /* 禁用时的鼠标样式 */
+}

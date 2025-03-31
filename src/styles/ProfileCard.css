@@ -1,0 +1,74 @@
+/* ProfileCard.css */
+.profile-card {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.9); /* 半透明背景 */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* 更加柔和的阴影效果 */
+  padding: 20px;
+  border-radius: 10px; /* 圆角边框 */
+  z-index: 9999 !important;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out; /* 添加过渡效果 */
+  opacity: 1; /* 初始透明度 */
+  width: 80%; /* 宽度调整 */
+  max-width: 400px; /* 最大宽度 */
+}
+
+.profile-card:hover {
+  transform: translate(-50%, -50%) scale(1.05); /* 放大效果 */
+  opacity: 1;
+}
+
+.profile-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.profile-card-title {
+  flex-grow: 1; /* 使标题占据剩余空间 */
+  text-align: center; /* 居中对齐 */
+  font-weight: bold; /* 加粗标题 */
+  font-size: 1.2em; /* 增大字体 */
+  color: #333; /* 深色字体 */
+}
+
+.profile-card-close-icon {
+  cursor: pointer;
+  color: #888; /* 默认关闭图标颜色 */
+  transition: color 0.3s ease-in-out; /* 添加颜色过渡效果 */
+}
+
+.profile-card-close-icon:hover {
+  color: #f44336; /* 悬停时变为红色 */
+}
+
+.profile-card-content-intro {
+  text-align: left;
+  margin: 10px;
+}
+
+.profile-card-content p {
+  margin: 5px 0;
+  font-size: 1em; /* 适中的字体大小 */
+  color: #555; /* 中性色字体 */
+  transition: color 0.3s ease-in-out; /* 添加颜色过渡效果 */
+  width: 100%; /* 确保每个段落占据整个宽度 */
+  text-align: center; /* 确保每个段落中的文本居中 */
+}
+
+.profile-card-content p:hover {
+  color: #000; /* 悬停时字体变为黑色 */
+}
+
+.profile-card-logo {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.bot-logo {
+  max-width: 250px; /* 调整头像大小 */
+  height: auto;
+}
