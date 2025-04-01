@@ -13,15 +13,22 @@ function ActivityIntro(props) {
   return (
     <div className="activity-intro-container">
       <h1 className="activity-intro-title">
-      Study Overview & <i>Save The Children</i> 🙌
+        {/* Study Overview & <i>Save The Children</i> 🙌 */}
+        Activity Overview
       </h1>
       <div className="activity-intro-description">
-      <p>
-  In this final part of the study, you'll engage in a conversation about your recent task and the topic of donations. This research is related to <i>Save the Children</i>, a global charity dedicated to supporting children in need.
-</p>
-<p>
-  We are interested in how people think about distributing money—whether to keep it, share it, or donate it—and how these choices are shaped through discussion. Your insights will help us better understand attitudes toward charitable giving and financial decision-making.
-</p>
+        <p>
+          In this final part of the study, you'll engage in a conversation about
+          your recent task and the subject of donations. This topic is related
+          to <i>Save the Children</i>, a global charity dedicated to supporting
+          children in need.
+        </p>
+        <p>
+          We are interested in how people think about distributing money—whether
+          to keep it, share it, or donate it—and how these choices are shaped
+          through discussion. Your insights will help us better understand
+          attitudes toward charitable giving and financial decision-making.
+        </p>
       </div>
 
       <Button

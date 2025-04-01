@@ -1,6 +1,6 @@
 //CharityDonation.jsx
 import React, { useState, useContext } from "react";
-import "../styles/CharityDonation.css"; 
+import "../styles/CharityDonation.css";
 import { Slider, Button } from "@mui/material";
 import { getFirestore, doc, setDoc } from "firebase/firestore";
 import { initializeApp } from "firebase/app";
@@ -11,19 +11,23 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 function CharityDonation(props) {
-  const [donationAmount, setDonationAmount] = useState(0); 
+  const [donationAmount, setDonationAmount] = useState(0);
   const userId = useContext(AuthContext);
 
   const handleSliderChange = (event, newValue) => {
     setDonationAmount(newValue);
   };
 
-const handleNext = async () => {
+  const handleNext = async () => {
     const profileRef = doc(db, "users", userId, "profile", "info");
     try {
-      await setDoc(profileRef, {
-        donationAmount_first: donationAmount,
-      }, { merge: true });
+      await setDoc(
+        profileRef,
+        {
+          donationAmount_first: donationAmount,
+        },
+        { merge: true }
+      );
 
       props.handleNext(donationAmount);
     } catch (error) {
@@ -31,7 +35,6 @@ const handleNext = async () => {
       alert("Failed to save. Please try again.");
     }
   };
-
 
   return (
     <div className="charity-donation-container">
@@ -42,9 +45,9 @@ const handleNext = async () => {
           <i>Save the Children</i>.
           <br />
           <br />
-          Any amount you choose to donate will be deducted <b>only</b> from your
-          bonus payment from the previous task. Your total compensation for the
-          study will <b>not</b> be affected.
+          Any amount you choose to donate will be deducted{" "}
+          <b>only from your bonus payment</b> from the previous task. Your total
+          compensation for the study will <b>not</b> be affected.
         </p>
         <p className="charity-donation-text">
           If you do not wish to donate, please click "Next" to continue.

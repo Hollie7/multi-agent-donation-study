@@ -23,12 +23,12 @@ import { getFirestore, doc, setDoc } from "firebase/firestore";
 import { initializeApp } from "firebase/app";
 import { firebaseConfig } from "../config/config.js";
 import { AuthContext } from "../contexts/contexts";
-import "../styles/CharityDonation.css"; 
+import "../styles/CharityDonation.css";
 
 function SurveyPage(props) {
   const [formData, setFormData] = useState(props.peopleData.User); // 这里读出User的初始数据
   const [isLoading, setIsLoading] = useState(false); // 添加加载状态
-  
+
   const userId = useContext(AuthContext); // Get current user ID
   const app = initializeApp(firebaseConfig);
   const db = getFirestore(app);
@@ -54,7 +54,7 @@ function SurveyPage(props) {
       Math.floor(code / 2) % 2 === 0
         ? generateSimilarPrompt
         : generateDifferentPrompt;
-  
+
     const identities = {};
     for (const name of botNames) {
       identities[name] = await generateNewIdentities(
@@ -64,7 +64,7 @@ function SurveyPage(props) {
       );
       selectedOccupations.add(identities[name].occupation);
     }
-  
+
     return identities;
   }
 
@@ -86,19 +86,19 @@ function SurveyPage(props) {
 
   const handleSubmit = async () => {
     setIsLoading(true);
-  
+
     const unansweredFields = validateRequiredFields(formData);
     if (unansweredFields.length > 0) {
       alert("Please answer all the questions on this page!");
       setIsLoading(false);
       return;
     }
-  
+
     try {
       const identities = await generateBotIdentities(formData, props.code);
       await saveSurveyToDatabase(userId, formData);
       await saveBotIdentitiesToDatabase(userId, identities);
-  
+
       // Update local state
       botNames.forEach((name) => {
         props.peopleData[name] = { ...identities[name] };
@@ -106,7 +106,7 @@ function SurveyPage(props) {
       props.setPeopleData(props.peopleData);
       props.handleNext(formData);
 
-      alert("Submitted successfully ✔");
+      // alert("Submitted successfully ✔");
     } catch (error) {
       console.error("Error in handleSubmit:", error);
       alert("Submission failed. Please try again.");
@@ -114,15 +114,16 @@ function SurveyPage(props) {
       setIsLoading(false);
     }
   };
-  
 
   return (
     <div className="survey-page">
       <h2>Survey Page</h2>
       <p className="charity-donation-text">
-      To help us better personalize our AI agents, please complete the survey based on your own information.
-Your responses will be used solely for the purpose of this study and will <b>not</b> be stored or shared after the experiment concludes.
-        </p>
+        To help us better personalize our AI agents, please complete the survey
+        based on your own information. Your responses will be used solely for
+        the purpose of this study and will <b>not</b> be stored or shared after
+        the experiment concludes.
+      </p>
       <Card className="survey-card">
         <CardContent>
           <FormControl component="fieldset">
