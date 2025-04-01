@@ -53,7 +53,7 @@ function LoginPage(props) {
         </h1>{" "}
         <TextField
           id="login-id"
-          label="Qualtrics ID"
+          label="Connect ID"
           variant="outlined"
           value={id}
           placeholder="123456"
