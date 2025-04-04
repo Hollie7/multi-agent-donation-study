@@ -486,25 +486,17 @@ const botImageMap = {
   Bot5_mo51_Nb_DB: bot5_mo51_Nb_DB,
 };
 
-const botNameMap = {
-  Alex: "Bot1",
-  Jordan: "Bot2",
-  Taylor: "Bot3",
-  Morgan: "Bot4",
-  Casey: "Bot5",
-};
-
-export function getBotLogo(senderName, peopleData) {
-  // 如果 senderName 是 "Host"，直接返回 hostlogo
+export function getBotLogo(senderName, botProfiles) {
   if (senderName === "Host") {
     return hostlogo;
   }
-  const botNumber = botNameMap[senderName];
-  const profileData = peopleData[senderName];
+  if (!botProfiles || Object.keys(botProfiles).length === 0) {
+    return hostlogo;
+  }
+  const botNumber = senderName;
+  const profileData = botProfiles[senderName];
 
   let age_group_name = "";
-
-  // 更改了年龄格式
   if (profileData.ageRange >= 18 && profileData.ageRange <= 30) {
     age_group_name = "1830";
   } else if (profileData.ageRange >= 31 && profileData.ageRange <= 50) {
@@ -527,6 +519,5 @@ export function getBotLogo(senderName, peopleData) {
   const imageKey = `${botNumber}_${age_group_name}_${gender_name}_${ethnicity_name}`;
   const image = botImageMap[imageKey];
 
-  // console.log("Generated imageKey:", imageKey); // 调试信息
-  return image || hostlogo; // 返回图片对象
+  return image || hostlogo;
 }

@@ -14,6 +14,7 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   max-width: 600px;
   text-align: center;
+  line-height: 1.8; /* more readable */
 }
 
 .charity-donation-title {
@@ -40,7 +41,7 @@
   margin-bottom: 20px;
 }
 
-.charity-donation-button {
+/* .charity-donation-button {
   background-color: #4caf50 !important;
   color: white !important;
   padding: 10px 20px !important;
@@ -48,14 +49,38 @@
   border-radius: 5px !important;
   cursor: pointer !important;
   transition: background-color 0.3s ease !important;
+} */
+
+.charity-donation-button-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.charity-donation-button {
+  background-color: #4caf50 !important;
+  color: white !important;
+  padding: 10px 24px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease;
+  text-transform: none;
 }
 
 .charity-donation-button:hover {
   background-color: #4caf50 !important;
 }
 
+.charity-donation-button:disabled {
+  background-color: #9e9e9e !important;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
 .donation-reminder {
   margin-top: 20px;
+  margin-bottom: 20px;
   padding: 15px;
   background-color: #fff9c4;
   border-left: 5px solid #fdd835;

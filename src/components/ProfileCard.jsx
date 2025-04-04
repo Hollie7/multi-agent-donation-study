@@ -5,8 +5,6 @@ import CloseIcon from "@mui/icons-material/Close";
 import "../styles/ProfileCard.css";
 
 const ProfileCard = ({ profileData, logo, onClose }) => {
-  console.log("ProfileCard profileData:", profileData);
-
   if (!profileData || Object.keys(profileData).length === 0) {
     return null;
   }
@@ -24,15 +22,15 @@ const ProfileCard = ({ profileData, logo, onClose }) => {
         <p>
           <strong>Age:</strong> {profileData.ageRange}
         </p>
-        <p>
+        {/* <p>
           <strong>Gender:</strong> {profileData.gender}
-        </p>
+        </p> */}
         <p>
           <strong>Occupation:</strong> {profileData.occupation}
         </p>
-        <p>
+        {/* <p>
           <strong>Ethnicity:</strong> {profileData.ethnicity}
-        </p>
+        </p> */}
       </div>
     </div>
   );

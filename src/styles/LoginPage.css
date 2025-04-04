@@ -16,7 +16,7 @@
   background-color: white;
   border-radius: 10px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-  width: 300px;
+  width: 400px;
   gap: 10px;
 }
 
@@ -29,6 +29,19 @@
 .input-field {
   margin-bottom: 15px;
   width: 100%;
+}
+
+.input-field .MuiInputBase-input {
+  text-align: center;
+  color: #000;
+}
+
+.input-field .MuiInputLabel-root {
+  color: #ccc;
+}
+
+.input-field .Mui-focused .MuiInputLabel-root {
+  color: #000 !important;
 }
 
 /* LoginPage.css */

@@ -29,10 +29,9 @@ function Message(props) {
       <ProfileCardDisplay
         message={props.message}
         name={props.name}
-        peopleData={props.peopleData} // 确保 peopleData 被传递
+        botsProfile={props.botsProfile}
         onClose={props.onProfileCardClose} // 确保 onClose 回调被传递
         donationAmount_first={props.donationAmount_first}
-        willingness_first={props.willingness_first}
       />
     );
   }
@@ -48,9 +47,8 @@ function Message(props) {
     <MessageFromBot
       message={props.message}
       name={props.name}
-      peopleData={props.peopleData}
+      botsProfile={props.botsProfile}
       donationAmount_first={props.donationAmount_first}
-      willingness_first={props.willingness_first}
     />
   );
 }

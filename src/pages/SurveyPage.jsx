@@ -16,22 +16,21 @@ import {
   generateSimilarPrompt,
   generateDifferentPrompt,
 } from "../constants/prompts";
-import generateNewIdentities from "../functions/generateNewIdentities";
+import generateNewIdentities from "../utils/generateNewIdentities";
 import "../styles/SurveyPage.css";
 import { botNames } from "../constants/botNames";
-import { getFirestore, doc, setDoc } from "firebase/firestore";
-import { initializeApp } from "firebase/app";
-import { firebaseConfig } from "../config/config.js";
 import { AuthContext } from "../contexts/contexts";
 import "../styles/CharityDonation.css";
+import {
+  writeUserDemographic,
+  writeBotProfiles,
+} from "../services/firebaseService";
 
 function SurveyPage(props) {
-  const [formData, setFormData] = useState(props.peopleData.User); // 这里读出User的初始数据
-  const [isLoading, setIsLoading] = useState(false); // 添加加载状态
+  const [formData, setFormData] = useState(props.userProfile);
+  const [isLoading, setIsLoading] = useState(false);
 
   const userId = useContext(AuthContext); // Get current user ID
-  const app = initializeApp(firebaseConfig);
-  const db = getFirestore(app);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -56,32 +55,17 @@ function SurveyPage(props) {
         : generateDifferentPrompt;
 
     const identities = {};
-    for (const name of botNames) {
-      identities[name] = await generateNewIdentities(
+    for (let i = 0; i < botNames.length; i++) {
+      const botKey = `Bot${i + 1}`; // ✅ Use "Bot1", "Bot2", ...
+      identities[botKey] = await generateNewIdentities(
         formData,
         prompt,
         selectedOccupations
       );
-      selectedOccupations.add(identities[name].occupation);
+      selectedOccupations.add(identities[botKey].occupation);
     }
 
     return identities;
-  }
-
-  async function saveSurveyToDatabase(userId, formData) {
-    const profileRef = doc(db, "users", userId, "profile", "info");
-    await setDoc(profileRef, {
-      ...formData,
-      surveyCompleted: true,
-      createdAt: new Date(),
-    });
-  }
-
-  async function saveBotIdentitiesToDatabase(userId, identities) {
-    for (const name of Object.keys(identities)) {
-      const botRef = doc(db, "users", userId, "bots", name);
-      await setDoc(botRef, identities[name]);
-    }
   }
 
   const handleSubmit = async () => {
@@ -95,18 +79,18 @@ function SurveyPage(props) {
     }
 
     try {
-      const identities = await generateBotIdentities(formData, props.code);
-      await saveSurveyToDatabase(userId, formData);
-      await saveBotIdentitiesToDatabase(userId, identities);
+      // 1. Store user demographic info to Firestore
+      await writeUserDemographic(userId, formData);
+      props.setUserProfile(formData); //update App state
 
-      // Update local state
-      botNames.forEach((name) => {
-        props.peopleData[name] = { ...identities[name] };
-      });
-      props.setPeopleData(props.peopleData);
-      props.handleNext(formData);
+      // 2. Generate bot profiles
+      const botIdentities = await generateBotIdentities(formData, props.code);
+      await writeBotProfiles(userId, botIdentities); // save all bots
 
-      // alert("Submitted successfully ✔");
+      props.setBotsProfile(botIdentities); // update App state
+
+      // 3. Go to next page
+      props.handleNext();
     } catch (error) {
       console.error("Error in handleSubmit:", error);
       alert("Submission failed. Please try again.");
@@ -117,12 +101,11 @@ function SurveyPage(props) {
 
   return (
     <div className="survey-page">
-      <h2>Survey Page</h2>
+      <h1>Survey Page</h1>
       <p className="charity-donation-text">
-        To help us better personalize our AI agents, please complete the survey
-        based on your own information. Your responses will be used solely for
-        the purpose of this study and will <b>not</b> be stored or shared after
-        the experiment concludes.
+        Please complete the survey based on your own information. Your responses
+        will be used solely for the purpose of this study and will <b>not</b> be
+        stored or shared after the experiment concludes.
       </p>
       <Card className="survey-card">
         <CardContent>
@@ -285,7 +268,7 @@ function SurveyPage(props) {
         }}
       >
         {isLoading ? (
-          <CircularProgress /> // 显示加载动画
+          <CircularProgress />
         ) : (
           <Button
             variant="contained"

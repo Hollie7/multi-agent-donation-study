@@ -5,42 +5,55 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import "../styles/LoginPage.css";
 import { CODE_MAP } from "../constants/conditions";
+import { writeUserMetaState } from "../services/firebaseService";
 
 function LoginPage(props) {
-  const [id, setId] = useState(""); // 设置初始值为空字符串, 每次用户在输入框中输入内容时都会调用它更新id的值
+  const [id, setId] = useState("");
   const [name, setName] = useState("");
   const [code, setCode] = useState("");
+  const { showSnackbar } = props;
 
   function checkLogin(id, name, code) {
     if (id.trim() === "") {
-      alert("⚠️ Connect ID cannot be empty. Please enter valid ID.");
+      showSnackbar("Connect ID cannot be empty. Please enter valid ID.");
       return false;
     }
-
     if (id.length !== 32) {
-      alert(
-        "Invalid Connect ID! Please ensure you enter a correct ID with 32 digits."
-      );
+      showSnackbar("Invalid Connect ID! It must be 32 digits.");
       return false;
     }
-
-    if (!name || name.trim() === "") {
-      alert("⚠️ Name cannot be empty. Please enter valid name.");
+    if (name.trim() === "") {
+      showSnackbar("Name cannot be empty. Please enter valid name.");
       return false;
     }
-
-    if (!code || code.trim() === "") {
-      alert("⚠️ Group code cannot be empty. Please enter valid details.");
+    if (code.trim() === "") {
+      showSnackbar("Group code cannot be empty. Please enter valid details.");
       return false;
     }
-
     if (!(code in CODE_MAP)) {
-      alert("⚠️ Invalid code! Please check the condition code in the survey.");
+      showSnackbar(
+        "Invalid code! Please check the condition code in the survey."
+      );
       return false;
     }
 
     return true;
   }
+
+  const handleLoginSubmit = async (id, name, code) => {
+    if (!checkLogin(id, name, code)) {
+      return;
+    }
+
+    const timestamp = new Date();
+    await writeUserMetaState(id, {
+      name,
+      condition: code,
+      createdAt: timestamp,
+    });
+
+    props.handleLogin(id, name, code);
+  };
 
   return (
     <div className="login-page-container">
@@ -51,91 +64,37 @@ function LoginPage(props) {
             😊
           </span>
         </h1>{" "}
+        {/* Connect ID input: expects a 32-digit numeric string */}
         <TextField
           id="login-id"
-          label="Connect ID"
+          label="Connect ID (32-digit number)"
           variant="outlined"
           value={id}
-          placeholder="123456"
-          onChange={(e) => {
-            setId(e.target.value);
-          }}
+          placeholder="e.g., 01234567890123456789012345678901"
+          onChange={(e) => setId(e.target.value)}
           className="input-field"
-          InputProps={{
-            style: {
-              textAlign: "center",
-            },
-          }}
-          InputLabelProps={{
-            style: {
-              color: id ? "#000" : "#ccc",
-            },
-          }}
-          sx={{
-            "& .MuiInputBase-input": {
-              color: id ? "#000" : "#ccc",
-            },
-          }}
         />
         <TextField
           id="login-name"
-          label="Name"
+          label="Preferred Name"
           variant="outlined"
           value={name}
-          placeholder="Your name"
-          onChange={(e) => {
-            setName(e.target.value);
-          }}
+          placeholder="e.g., Alex, Lily"
+          onChange={(e) => setName(e.target.value)}
           className="input-field"
-          InputProps={{
-            style: {
-              textAlign: "center",
-            },
-          }}
-          InputLabelProps={{
-            style: {
-              color: name ? "#000" : "#ccc",
-            },
-          }}
-          sx={{
-            "& .MuiInputBase-input": {
-              color: name ? "#000" : "#ccc",
-            },
-          }}
         />
         <TextField
           id="login-code"
-          label="Condition"
+          label="Condition Code (3-digit)"
           variant="outlined"
           value={code}
-          placeholder="sample"
-          onChange={(e) => {
-            setCode(e.target.value);
-          }}
+          placeholder="e.g., XYZ"
+          onChange={(e) => setCode(e.target.value)}
           className="input-field"
-          InputProps={{
-            style: {
-              textAlign: "center",
-            },
-          }}
-          InputLabelProps={{
-            style: {
-              color: code ? "#000" : "#ccc",
-            },
-          }}
-          sx={{
-            "& .MuiInputBase-input": {
-              color: code ? "#000" : "#ccc",
-            },
-          }}
         />
         <Button
           variant="contained"
-          onClick={() => {
-            if (checkLogin(id, name, code)) {
-              props.handleLogin(id, name, code);
-            }
-          }}
+          onClick={() => handleLoginSubmit(id, name, code)}
           className="login-button"
         >
           Login

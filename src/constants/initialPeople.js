@@ -4,7 +4,6 @@ export const initialPeopleData = {
     gender: "N/A",
     occupation: "N/A",
     ethnicity: "N/A",
-    // Connect_ID: "",
   },
   Alex: {
     ageRange: "N/A",

@@ -1,5 +1,13 @@
 /* ActivityIntro.css */
 .activity-intro-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f7f9fc;
+}
+
+.activity-intro-box {
   max-width: 600px;
   margin-top: 500px;
   margin: 0 auto;
@@ -7,11 +15,6 @@
   background-color: #f9f9f9;
   border-radius: 8px;
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-  /* position: fixed; */
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
 }
 
 .activity-intro-description {
@@ -20,6 +23,7 @@
   font-size: 18px;
   margin: 0 auto;
   padding: 30px;
+  line-height: 1.8; /* Adds more space between lines */
 }
 
 .activity-intro-title {
@@ -38,7 +42,38 @@
   text-align: center;
 }
 
+/* ActivityIntro.css */
 .activity-intro-button {
-  display: block;
-  margin: 0 auto;
+  /* display: block;
+  margin: 0 auto; */
+  background-color: #4caf50 !important;
+  color: white !important;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 8px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  text-transform: none;
+}
+
+/* Hover effect  */
+.activity-intro-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Active (mouse down) effect */
+.activity-intro-button:active {
+  transform: scale(0.8);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Disabled state */
+.activity-intro-button:disabled {
+  background-color: #9e9e9e !important; /* Gray background */
+  color: white;
+  box-shadow: none;
+  cursor: not-allowed;
+  transform: none;
 }

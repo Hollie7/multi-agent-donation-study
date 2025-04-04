@@ -6,6 +6,7 @@ import CircularProgress from "@mui/material/CircularProgress";
 import MessageInput from "./MessageInput";
 import Message from "./Message.jsx";
 import "../styles/MessageScreen.css";
+import Skeleton from "@mui/material/Skeleton";
 
 function MessageScreen(props) {
   const messagesEndRef = useRef(null);
@@ -31,24 +32,53 @@ function MessageScreen(props) {
                     message={msg}
                     key={msg.id}
                     name={props.name}
-                    peopleData={props.peopleData} // 确保 peopleData 被传递
+                    botsProfile={props.botsProfile}
                     donationAmount_first={props.donationAmount_first}
                     handleSubmitRating={props.handleSubmitRating}
-                    onProfileCardClose={props.onProfileCardClose} // 传递关闭 ProfileCard 的回调函数
-                    handleSubmitWillingness={props.handleSubmitWillingness} // 传递提交意愿的回调函数
-                    willingness_first={props.willingness_first}
+                    onProfileCardClose={props.onProfileCardClose}
+                    handleSubmitWillingness={props.handleSubmitWillingness}
+                    // willingness_first={props.willingness_first}
                   />
                 ))
               )}
               <div ref={messagesEndRef} />
             </div>
+            {props.displayTyping ? (
+              <>
+                <div style={{ display: "flex", flexDirection: "row" }}>
+                  <Skeleton
+                    animation="wave"
+                    sx={{
+                      bgcolor: "#F5F2EB",
+                      marginLeft: "15px",
+                    }}
+                    variant="circular"
+                    height={40}
+                    width={40}
+                  />
+                  <Skeleton
+                    animation="wave"
+                    sx={{
+                      bgcolor: "#F5F2EB",
+                      marginLeft: "10px",
+                      borderRadius: "20px",
+                    }}
+                    variant="rounded"
+                    width={100}
+                    height={40}
+                  />
+                </div>
+              </>
+            ) : (
+              <></>
+            )}
           </SimpleBar>
         </div>
         <MessageInput
           addMessage={props.addMessage}
           blockUserMessages={props.blockUserMessages}
-          inputValue={props.inputValue} // 传递 inputValue
-          setInputValue={props.setInputValue} // 传递 setInputValue
+          inputValue={props.inputValue}
+          setInputValue={props.setInputValue}
         />
       </div>
     </div>

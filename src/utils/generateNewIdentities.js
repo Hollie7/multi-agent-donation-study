@@ -32,7 +32,6 @@ async function generateNewIdentities(userData, prompt, selectedOccupations) {
 
   try {
     const response = await openai.chat.completions.create(req);
-    console.log("Token usage:", response.usage);
 
     const responseContent = response.choices[0].message.content;
     const newIdentities = JSON.parse(responseContent);

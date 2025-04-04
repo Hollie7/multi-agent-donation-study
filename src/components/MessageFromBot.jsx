@@ -4,18 +4,53 @@ import EntityType from "../enums/EntityTypes";
 import MessageType from "../enums/MessageTypes";
 import ProfileCard from "./ProfileCard";
 import { useState } from "react";
-import { getBotLogo } from "../functions/getBotLogo";
+import { getBotLogo } from "../utils/getBotLogo";
 
 function MessageFromBot(props) {
   const [isHovered, setIsHovered] = useState(false);
   const [showProfile, setShowProfile] = useState(false);
 
-  const handleAvatarClick = () => {
-    setShowProfile(true);
+  const {
+    message,
+    botsProfile,
+    name,
+    donationAmount_first,
+    willingness_first,
+  } = props;
+  const senderName = message.senderName;
+  const senderType = message.sender;
+  const isImage = message.type === MessageType.Image;
+  const isHost = senderType === EntityType.Host;
+
+  const getSenderClass = () => {
+    return senderType === EntityType.Bot1
+      ? "messageSenderName1"
+      : "messageSenderName2";
   };
 
-  const handleCloseProfile = () => {
-    setShowProfile(false);
+  const renderContent = () => {
+    const content =
+      typeof message.content === "function"
+        ? message.content(
+            name,
+            botsProfile,
+            donationAmount_first,
+            willingness_first
+          )
+        : message.content;
+
+    const wrapperClass = isHost
+      ? "messageText messageTextHost"
+      : "messageText messageTextReceived";
+
+    return (
+      <div className={wrapperClass}>
+        <div className={`messageSenderName ${getSenderClass()}`}>
+          {senderName}
+        </div>
+        <div dangerouslySetInnerHTML={{ __html: content }} />
+      </div>
+    );
   };
 
   return (
@@ -26,81 +61,30 @@ function MessageFromBot(props) {
     >
       <div className="messageReceivedAvatarWrapper">
         <img
-          src={getBotLogo(props.message.senderName, props.peopleData)}
+          src={getBotLogo(message.sender.name, botsProfile)}
           alt="Chatbot"
           className={`messageReceivedAvatar ${
             isHovered ? "avatarHovered" : ""
           }`}
-          onClick={handleAvatarClick}
+          onClick={() => setShowProfile(true)}
         />
       </div>
 
-      {props.message.type === MessageType.Image ? (
+      {isImage ? (
         <div className="messageImage">
-          <img
-            src={`/images/${props.message.content}`}
-            width="250"
-            height="250"
-          />
-        </div>
-      ) : props.message.sender === EntityType.Host ? (
-        <div className="messageText messageTextHost">
-          <div
-            className={`messageSenderName ${
-              props.message.sender === EntityType.Bot1
-                ? "messageSenderName1"
-                : "messageSenderName2"
-            }`}
-          >
-            {props.message.senderName}
-          </div>
-          <div
-            dangerouslySetInnerHTML={{
-              __html:
-                typeof props.message.content === "function"
-                  ? props.message.content(
-                      props.name,
-                      props.peopleData,
-                      props.donationAmount_first,
-                      props.willingness_first
-                    )
-                  : props.message.content,
-            }}
-          />
+          <img src={`/images/${message.content}`} width="250" height="250" />
         </div>
       ) : (
-        <div className="messageText messageTextReceived">
-          <div
-            className={`messageSenderName ${
-              props.message.sender === EntityType.Bot1
-                ? "messageSenderName1"
-                : "messageSenderName2"
-            }`}
-          >
-            {props.message.senderName}
-          </div>
-          <div
-            dangerouslySetInnerHTML={{
-              __html:
-                typeof props.message.content === "function"
-                  ? props.message.content(
-                      props.name,
-                      props.peopleData,
-                      props.donationAmount_first,
-                      props.willingness_first
-                    )
-                  : props.message.content,
-            }}
-          />
-        </div>
+        renderContent()
       )}
+
       {showProfile && (
         <ProfileCard
-          profileData={props.peopleData[props.message.senderName]}
-          logo={getBotLogo(props.message.senderName, props.peopleData)} // 传递 logo
-          donationAmount_first={props.donationAmount_first}
-          willingness_first={props.willingness_first}
-          onClose={handleCloseProfile}
+          profileData={botsProfile[message.sender.name]}
+          logo={getBotLogo(message.sender.name, botsProfile)}
+          donationAmount_first={donationAmount_first}
+          willingness_first={willingness_first}
+          onClose={() => setShowProfile(false)}
         />
       )}
     </div>

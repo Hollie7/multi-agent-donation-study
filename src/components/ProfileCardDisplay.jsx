@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import ProfileCard from "./ProfileCard";
 import EntityType from "../enums/EntityTypes";
-import { getBotLogo } from "../functions/getBotLogo"; // 使用提取的 getBotLogo 函数
+import { getBotLogo } from "../utils/getBotLogo"; // 使用提取的 getBotLogo 函数
 
 function ProfileCardDisplay(props) {
   const [showProfileCard, setShowProfileCard] = useState(true);

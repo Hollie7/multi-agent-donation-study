@@ -1,38 +1,43 @@
 //CharityDonation.jsx
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import "../styles/CharityDonation.css";
 import { Slider, Button } from "@mui/material";
-import { getFirestore, doc, setDoc } from "firebase/firestore";
-import { initializeApp } from "firebase/app";
-import { firebaseConfig } from "../config/config";
-import { AuthContext } from "../contexts/contexts"; // Adjust path if needed
+import { AuthContext } from "../contexts/contexts";
+import { writeUserDonation } from "../services/firebaseService";
 
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
 
 function CharityDonation(props) {
   const [donationAmount, setDonationAmount] = useState(0);
+  const [secondsLeft, setSecondsLeft] = useState(10); // Countdown seconds
   const userId = useContext(AuthContext);
+  const { showSnackbar } = props;
+
+  useEffect(() => {
+    // Countdown for enabling the Next button
+    const timer = setInterval(() => {
+      setSecondsLeft((prev) => {
+        if (prev === 1) {
+          clearInterval(timer);
+        }
+        return prev - 1;
+      });
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
 
   const handleSliderChange = (event, newValue) => {
     setDonationAmount(newValue);
   };
 
   const handleNext = async () => {
-    const profileRef = doc(db, "users", userId, "profile", "info");
     try {
-      await setDoc(
-        profileRef,
-        {
-          donationAmount_first: donationAmount,
-        },
-        { merge: true }
-      );
+      await writeUserDonation(userId, donationAmount);
 
       props.handleNext(donationAmount);
     } catch (error) {
       console.error("Failed to save donation amount:", error);
-      alert("Failed to save. Please try again.");
+      showSnackbar("Failed to save. Please try again.");
     }
   };
 
@@ -40,18 +45,17 @@ function CharityDonation(props) {
     <div className="charity-donation-container">
       <div className="charity-donation-content">
         <h1 className="charity-donation-title">Make a Donation ❤️</h1>
+
         <p className="charity-donation-text">
-          If you'd like, please select an amount to donate to{" "}
-          <i>Save the Children</i>.
+          You have earned <b>$3</b> from the previous task. How much of this
+          amount would you like to donate to <i>Save the Children</i>?
           <br />
           <br />
-          Any amount you choose to donate will be deducted{" "}
-          <b>only from your bonus payment</b> from the previous task. Your total
-          compensation for the study will <b>not</b> be affected.
+          Please indicate the amount you wish to donate to{" "}
+          <i>Save the Children</i> from your $3 earnings. If you do not wish to
+          donate, please click "Next" to continue.
         </p>
-        <p className="charity-donation-text">
-          If you do not wish to donate, please click "Next" to continue.
-        </p>
+
         <div className="charity-donation-slider">
           <Slider
             value={donationAmount}
@@ -64,28 +68,27 @@ function CharityDonation(props) {
             max={3}
           />
         </div>
+
         <p className="charity-donation-amount">
-          Selected Donation Amount: ${donationAmount}
+          Selected Donation Amount: <b>${donationAmount.toFixed(2)}</b>
         </p>
+
         <div className="donation-reminder">
           <p>
-            You can donate up to <b>$3</b>, which is the amount you earned in
-            the previous task. This amount will directly deducted from your task
-            payment.
-          </p>
-          <p>
-            After the study, the research team will send your donation to{" "}
-            <i>Save the Children</i>.
+            After the study, the research team will process and forward your
+            donation to <i>Save the Children</i>.
           </p>
         </div>
-        <Button
-          variant="contained"
-          color="primary"
-          className="charity-donation-button"
-          onClick={handleNext}
-        >
-          Next
-        </Button>
+
+        <div className="charity-donation-button-wrapper">
+          <Button
+            className="charity-donation-button"
+            onClick={handleNext}
+            disabled={secondsLeft > 0}
+          >
+            {secondsLeft > 0 ? `Next (${secondsLeft})` : "Next"}
+          </Button>
+        </div>
       </div>
     </div>
   );

@@ -1,20 +1,38 @@
-// WillingnessModal.jsx
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Button from "@mui/material/Button";
 import Slider from "@mui/material/Slider";
-import CloseIcon from "@mui/icons-material/Close";
 import "../styles/WillingnessModal.css";
 import "../styles/DonationAmount.css";
 
 const WillingnessModal = ({ handleSubmitWillingness }) => {
+  const WAIT_SECONDS = 10;
+
   const [willingness, setWillingness] = useState(0);
   const [showModal, setShowModal] = useState(true);
+  const [secondsLeft, setSecondsLeft] = useState(WAIT_SECONDS);
+  const [isButtonEnabled, setIsButtonEnabled] = useState(false);
+
+  useEffect(() => {
+    if (!showModal) return;
+
+    let timer;
+    if (secondsLeft > 0) {
+      timer = setTimeout(() => {
+        setSecondsLeft((prev) => prev - 1);
+      }, 1000);
+    } else {
+      setIsButtonEnabled(true);
+    }
+
+    return () => clearTimeout(timer);
+  }, [secondsLeft, showModal]);
 
   const handleSliderChange = (event, newValue) => {
     setWillingness(newValue);
   };
 
   const handleSubmit = () => {
+    if (!isButtonEnabled) return;
     handleSubmitWillingness(willingness);
     setShowModal(false);
   };
@@ -30,8 +48,10 @@ const WillingnessModal = ({ handleSubmitWillingness }) => {
           <h2>Make a Distribution</h2>
         </div>
         <p>
-          Please select how much of the additional $3 you would like to keep as
-          part of your bonus.
+          The research team has allocated an additional $3 that would be donated
+          to Save the Children by default. You now have the option to keep part
+          or all of this amount as a personal bonus. Please select how much you
+          would like to keep. The remaining amount, if any, will be donated.
         </p>
         <Slider
           value={willingness}
@@ -43,20 +63,28 @@ const WillingnessModal = ({ handleSubmitWillingness }) => {
           marks
           sx={{
             "& .MuiSlider-markLabel": {
-              fontSize: "13px", // 设置标签字体大小
-              color: "#333", // 设置标签颜色
+              fontSize: "13px",
+              color: "#333",
             },
           }}
         />
         <p>Selected Bonus Amount: ${willingness}</p>
         <p className="donation-reminder">
-          Please note: You may choose to keep any portion of the additional $3
-          as part of your bonus. The remaining amount, if any, will be donated
-          to <i>Save the Children</i> by the research team after the task is
-          completed.
+          💡 Note: This $3 is originally intended as a donation from the
+          research team. The amount you choose to keep will be subtracted from
+          that donation and added to your bonus payment. Any unclaimed portion
+          will still go to <i>Save the Children</i> after the task is completed.
         </p>
-        <Button onClick={handleSubmit} variant="contained" color="primary">
-          Submit
+
+        <Button
+          onClick={handleSubmit}
+          variant="contained"
+          color={isButtonEnabled ? "primary" : "inherit"}
+          disabled={!isButtonEnabled}
+        >
+          {isButtonEnabled
+            ? "Confirm Distribution"
+            : `Confirm (${secondsLeft}s)`}
         </Button>
       </div>
     </div>
