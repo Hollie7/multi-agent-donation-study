@@ -6,7 +6,6 @@ import "../styles/DonationAmount.css";
 
 const WillingnessModal = ({ handleSubmitWillingness }) => {
   const WAIT_SECONDS = 10;
-
   const [willingness, setWillingness] = useState(0);
   const [showModal, setShowModal] = useState(true);
   const [secondsLeft, setSecondsLeft] = useState(WAIT_SECONDS);
@@ -50,8 +49,11 @@ const WillingnessModal = ({ handleSubmitWillingness }) => {
         <p>
           The research team has allocated an additional $3 that would be donated
           to Save the Children by default. You now have the option to keep part
-          or all of this amount as a personal bonus. Please select how much you
-          would like to keep. The remaining amount, if any, will be donated.
+          or all of this amount as a personal bonus.{" "}
+          <strong className="highlight-keyword">
+            Please select how much you would like to keep
+          </strong>
+          . The remaining amount, if any, will be donated.
         </p>
         <Slider
           value={willingness}

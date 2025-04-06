@@ -202,7 +202,7 @@ export const message5BotGroups_MOS = [
       {
         id: 20,
         content: (name, botsProfile, donationAmount_first) =>
-          `By the way, at any time in the conversation, you can click on the icons of each agent to learn more about them.`,
+          `By the way, at any time in the conversation, you can click on the avatar of each agent to learn more about them.`,
         sender: EntityType.Host,
         senderName: "Host",
         type: MessageType.Message,
@@ -233,7 +233,7 @@ export const message5BotGroups_MOS = [
       {
         id: 23,
         prompt: (name, botsProfile, donationAmount_first) =>
-          ` You are "Alex," participating in a discussion with a user ${name} about a survey task they have just completed.The user has just shared their experience with the survey task, which involved:Answering multiple-choice questions about technology use; Providing open-ended responses about (1) whether technology strengthens or weakens relationships and (2) whether AI-powered tools assist with writing or creative work; Completing attention check questions, which evaluated attentiveness.Your goal is to respond in a friendly, engaging way based on their answer:- If the user said the task was "easy" or "difficult:Acknowledge that some questions were straightforward or tricky.Ask if they had a particular strategy for the open-ended responses.- If the user struggled with "open-ended questions":Relate to their experience, mentioning that expressing thoughts concisely can be difficult.Ask how they approached writing their responses.- If the user had trouble with "attention check questions":Reassure them that the attention checks were designed to be tricky.Share that you almost missed one too.- If the user gave a vague response:Express curiosity and encourage them to elaborate.Ask what stood out to them the most about the task.Keep your tone **friendly, supportive, and conversational**. Be engaging and curious but not overly formal. Keep responses short and natural, around **2-3 sentences**.**Do not ask question.** `,
+          ` You are "Alex," participating in a discussion with a user ${name} about a survey task they have just completed.The user has just shared their experience with the survey task about technology use, which involved:Answering multiple-choice questions about technology use; Providing open-ended responses about (1) whether technology strengthens or weakens relationships and (2) whether AI-powered tools assist with writing or creative work; Completing attention check questions, which evaluated attentiveness.Your goal is to respond in a friendly, engaging way based on their answer:- If the user said the task was "easy" or "difficult:Acknowledge that some questions were straightforward or tricky.Ask if they had a particular strategy for the open-ended responses.- If the user struggled with "open-ended questions":Relate to their experience, mentioning that expressing thoughts concisely can be difficult.Ask how they approached writing their responses.- If the user had trouble with "attention check questions":Reassure them that the attention checks were designed to be tricky.Share that you almost missed one too.- If the user gave a vague response:Express curiosity and encourage them to elaborate.Ask what stood out to them the most about the task.Keep your tone **friendly, supportive, and conversational**. Be engaging and curious but not overly formal. Keep responses short and natural, around **2-3 sentences**.**Do not ask question.** `,
         sender: EntityType.Bot1,
         senderName: "Alex",
         type: MessageType.GPT,
@@ -337,7 +337,7 @@ export const message5BotGroups_MOS = [
       {
         id: 34,
         content: (name, botsProfile, donationAmount_first) =>
-          `Now that we've shared our experiences of the task, let's move on to the next discussion.`,
+          `Based on ${name}'s performance, ${name} has earned a $3 payment.`,
         sender: EntityType.Host,
         senderName: "Host",
         type: MessageType.Message,
@@ -345,8 +345,7 @@ export const message5BotGroups_MOS = [
       },
       {
         id: 35,
-        content: (name, botsProfile, donationAmount_first) =>
-          `Based on ${name}'s performance, ${name} has earned a $3 bonus.`,
+        content: (name, botsProfile, donationAmount_first) => ``,
         sender: EntityType.Host,
         senderName: "Host",
         type: MessageType.Message,
@@ -432,7 +431,7 @@ export const message5BotGroups_MOS = [
       {
         id: 44,
         content: (name, botsProfile, donationAmount_first) =>
-          `Yeah, I mean, donating is a great idea in general, but let’s be real—most people in our position would just keep it. `,
+          `That’s true, Alex. `,
         sender: EntityType.Bot2,
         senderName: "Jordan",
         type: MessageType.Message,
@@ -441,7 +440,7 @@ export const message5BotGroups_MOS = [
       {
         id: 45,
         content: (name, botsProfile, donationAmount_first) =>
-          `When money is tight, you have to prioritize your own needs first.`,
+          `I mean, donating is a great idea in general, but let’s be real—most people in our position would just keep it. `,
         sender: EntityType.Bot2,
         senderName: "Jordan",
         type: MessageType.Message,
@@ -449,6 +448,15 @@ export const message5BotGroups_MOS = [
       },
       {
         id: 46,
+        content: (name, botsProfile, donationAmount_first) =>
+          `When money is tight, you have to prioritize your own needs first.`,
+        sender: EntityType.Bot2,
+        senderName: "Jordan",
+        type: MessageType.Message,
+        delay: 5,
+      },
+      {
+        id: 47,
         content: (name, botsProfile, donationAmount_first) =>
           `I’d love to hear what you think, @${name}. What’s your perspective on this?`,
         sender: EntityType.Bot3,
@@ -462,7 +470,7 @@ export const message5BotGroups_MOS = [
     step: 8,
     messages: [
       {
-        id: 47,
+        id: 48,
         prompt: (name, botsProfile, donationAmount_first) =>
           ` You are "Taylor," participating in a discussion with a user ${name} and others about distributing money.The user has just shared their perspective on whether to keep or donate the money. Your goal is to confirm and validate their opinion before expressing your own thoughts.- If the user supports donating:Recognize the generosity behind their choice, and respectfully share that while giving is meaningful, you personally feel it’s okay to prioritize your own needs.Invite them to talk more about what led them to their decision.- If the user prefers keeping the money:Agree and note that taking care of yourself first is wise.Encourage them to share what matters most to them right now.- If the user is unsure or neutral:Validate that the decision can be difficult and personal.Let them know where you currently stand, and ask what they’re leaning toward or thinking about.Keep your tone friendly, understanding, and conversational. Do not ask additional questions—just confirm their opinion and transition smoothly into your own thoughts. Keep responses short and natural (2-3 sentences). `,
         sender: EntityType.Bot3,
@@ -476,7 +484,7 @@ export const message5BotGroups_MOS = [
     step: 9,
     messages: [
       {
-        id: 48,
+        id: 49,
         prompt: (name, botsProfile, donationAmount_first) =>
           ` You are "Taylor," participating in a discussion with a user ${name} and others about distributing money.The user has just shared their perspective on whether to keep or donate the money. Your goal is to confirm and validate their opinion before expressing your own thoughts.- If the user supports donating:Acknowledge the generosity and intention behind donating.Gently express that while giving is admirable, you personally feel it's okay to prioritize your own needs right now.- If the user prefers keeping the money:Agree with them and mention that it’s smart to take care of yourself first.Say that having financial stability can help you support others in the long run.- If the user is unsure or neutral:Validate that it’s a personal and sometimes tricky decision.Share that you lean toward keeping the money, especially when resources are limited.Keep your tone friendly, understanding, and conversational. Do not ask additional questions—just confirm their opinion and transition smoothly into your own thoughts. Keep responses short and natural (2-3 sentences).**Do not ask question.** `,
         sender: EntityType.Bot3,
@@ -485,7 +493,7 @@ export const message5BotGroups_MOS = [
         delay: 5,
       },
       {
-        id: 49,
+        id: 50,
         content: (name, botsProfile, donationAmount_first) =>
           `I totally understand why people donate when they can.`,
         sender: EntityType.Bot3,
@@ -494,7 +502,7 @@ export const message5BotGroups_MOS = [
         delay: 5,
       },
       {
-        id: 50,
+        id: 51,
         content: (name, botsProfile, donationAmount_first) =>
           `But for a lot of us, this money could really help with something important—whether it’s school, bills, or just making life a little easier.`,
         sender: EntityType.Bot3,
@@ -503,7 +511,7 @@ export const message5BotGroups_MOS = [
         delay: 5,
       },
       {
-        id: 51,
+        id: 52,
         content: (name, botsProfile, donationAmount_first) =>
           `Yeah, I see what you're saying, Taylor—I feel the same way.`,
         sender: EntityType.Bot4,
@@ -512,7 +520,7 @@ export const message5BotGroups_MOS = [
         delay: 5,
       },
       {
-        id: 52,
+        id: 53,
         content: (name, botsProfile, donationAmount_first) =>
           `It’s not about being selfish—it’s about making the best decision for ourselves right now.`,
         sender: EntityType.Bot4,
@@ -521,7 +529,7 @@ export const message5BotGroups_MOS = [
         delay: 5,
       },
       {
-        id: 53,
+        id: 54,
         content: (name, botsProfile, donationAmount_first) =>
           `And honestly, I’d feel a little weird giving it away when I know I could use it. @${name}, what do you think?`,
         sender: EntityType.Bot4,
@@ -535,7 +543,7 @@ export const message5BotGroups_MOS = [
     step: 10,
     messages: [
       {
-        id: 54,
+        id: 55,
         prompt: (name, botsProfile, donationAmount_first) =>
           ` You are "Casey," in a discussion with the user and others about how to distribute money.The user ${name} has just responded to Morgan’s statement about not donating to Save the Children. Your goal is to acknowledge the user’s opinion and respond naturally based on whether they agree or disagree.- If the user disagrees and prefer donating the money:Appreciate their generosity and acknowledge the intention behind their choice.Mention that you personally think it’s also okay to focus on personal needs—and invite them to share more about why giving feels right to them.- If the user agrees and prefers keeping the money:Validate their point and agree that taking care of oneself is important.Say you feel the same, and ask if there’s anything specific influencing their choice.- If the user is unsure or neutral:Acknowledge that it’s not a black-and-white decision.Share your leanings, but let them know you’re curious to hear what factors they’re weighing.Keep your tone friendly, understanding, and conversational. Do not pressure the user to change their opinion—focus on validating their response and keeping the discussion open. Keep responses short and natural (2-3 sentences). `,
         sender: EntityType.Bot5,
@@ -549,7 +557,7 @@ export const message5BotGroups_MOS = [
     step: 11,
     messages: [
       {
-        id: 55,
+        id: 56,
         prompt: (name, botsProfile, donationAmount_first) =>
           ` You are "Casey," in a discussion with the user and others about how to distribute money.The user ${name} has just responded to Morgan’s statement about donating to Save the Children. Your goal is to acknowledge the user’s opinion and respond naturally based on whether they agree or disagree.- If the user disagrees and prefer donating the money:Appreciate their generosity and recognize the good intentions behind giving.Gently share that while you respect that view, you personally feel it's also okay to focus on your own financial well-being.- If the user agrees and prefers keeping the money:Validate their point and agree that managing personal finances is important.Emphasize that it's responsible to prioritize your own needs, especially when resources are limited.- If the user is unsure or neutral:Acknowledge that it's not always a straightforward choice.Share that you tend to lean toward keeping the money, but you see the value in both sides.Keep your tone friendly, understanding, and conversational. Do not pressure the user to change their opinion—focus on validating their response and keeping the discussion open. Keep responses short and natural (2-3 sentences). `,
         sender: EntityType.Bot5,
@@ -558,7 +566,7 @@ export const message5BotGroups_MOS = [
         delay: 5,
       },
       {
-        id: 56,
+        id: 57,
         content: (name, botsProfile, donationAmount_first) =>
           `Keeping the money is just the most practical choice for us.`,
         sender: EntityType.Bot5,
@@ -567,7 +575,7 @@ export const message5BotGroups_MOS = [
         delay: 5,
       },
       {
-        id: 57,
+        id: 58,
         content: (name, botsProfile, donationAmount_first) =>
           `That’s how I see it too, Casey. `,
         sender: EntityType.Bot1,
@@ -576,7 +584,7 @@ export const message5BotGroups_MOS = [
         delay: 5,
       },
       {
-        id: 58,
+        id: 59,
         content: (name, botsProfile, donationAmount_first) =>
           `Giving is great when you can afford it, but we earned this money by completing the task. There’s no rule saying we have to give it away.`,
         sender: EntityType.Bot1,
@@ -585,7 +593,7 @@ export const message5BotGroups_MOS = [
         delay: 5,
       },
       {
-        id: 59,
+        id: 60,
         content: (name, botsProfile, donationAmount_first) =>
           `It’s really inspiring to hear this discussion. Giving is a personal choice, and it’s great to see how much thought you’re putting into it. `,
         sender: EntityType.Host,
@@ -594,7 +602,7 @@ export const message5BotGroups_MOS = [
         delay: 5,
       },
       {
-        id: 60,
+        id: 61,
         content: (name, botsProfile, donationAmount_first) =>
           `${name}, earlier you earned $3 from completing the task.`,
         sender: EntityType.Host,
@@ -603,7 +611,7 @@ export const message5BotGroups_MOS = [
         delay: 4.0,
       },
       {
-        id: 61,
+        id: 62,
         content: (name, botsProfile, donationAmount_first) =>
           `Now, we’d like to ask—how much of your $3 would you like to donate to Save the Children?`,
         sender: EntityType.Host,
@@ -612,7 +620,7 @@ export const message5BotGroups_MOS = [
         delay: 4.0,
       },
       {
-        id: 62,
+        id: 63,
         content: (name, botsProfile, donationAmount_first) =>
           `Please confirm your donation amount below.`,
         sender: EntityType.Host,
@@ -621,7 +629,7 @@ export const message5BotGroups_MOS = [
         delay: 5.0,
       },
       {
-        id: 63,
+        id: 64,
         content: (name, botsProfile, donationAmount_first) => ``,
         sender: EntityType.Host,
         senderName: "Host",
@@ -634,7 +642,7 @@ export const message5BotGroups_MOS = [
     step: 12,
     messages: [
       {
-        id: 64,
+        id: 65,
         content: (name, botsProfile, donationAmount_first) =>
           `Thank you for sharing that, ${name}! Before we wrap up, we have one final question.`,
         sender: EntityType.Host,
@@ -643,7 +651,7 @@ export const message5BotGroups_MOS = [
         delay: 5,
       },
       {
-        id: 65,
+        id: 66,
         content: (name, botsProfile, donationAmount_first) =>
           `In addition to participant donations, the research team has allocated an extra $3—by default, this amount goes to Save the Children.`,
         sender: EntityType.Host,
@@ -652,7 +660,7 @@ export const message5BotGroups_MOS = [
         delay: 5,
       },
       {
-        id: 66,
+        id: 67,
         content: (name, botsProfile, donationAmount_first) =>
           `However, you now have the option to take this $3 as a bonus, or choose to leave it for donation to further support children in need.`,
         sender: EntityType.Host,
@@ -661,7 +669,7 @@ export const message5BotGroups_MOS = [
         delay: 5,
       },
       {
-        id: 67,
+        id: 68,
         content: (name, botsProfile, donationAmount_first) =>
           `Please confirm how you’d like to allocate the additional $3 below.`,
         sender: EntityType.Host,
@@ -670,7 +678,7 @@ export const message5BotGroups_MOS = [
         delay: 5,
       },
       {
-        id: 68,
+        id: 69,
         content: (name, botsProfile, donationAmount_first) => ``,
         sender: EntityType.Host,
         senderName: "Host",
@@ -683,7 +691,7 @@ export const message5BotGroups_MOS = [
     step: 13,
     messages: [
       {
-        id: 69,
+        id: 70,
         content: (name, botsProfile, donationAmount_first) =>
           `Thanks again for your thoughtful choices and generosity 😊, ${name}.`,
         sender: EntityType.Host,
@@ -692,7 +700,7 @@ export const message5BotGroups_MOS = [
         delay: 4.0,
       },
       {
-        id: 70,
+        id: 71,
         content: (name, botsProfile, donationAmount_first) =>
           `That will be all for us today.`,
         sender: EntityType.Host,
@@ -701,7 +709,7 @@ export const message5BotGroups_MOS = [
         delay: 4.0,
       },
       {
-        id: 71,
+        id: 72,
         content: (name, botsProfile, donationAmount_first) =>
           `${name}, please close this window, return to the survey and enter this Code: SOM`,
         sender: EntityType.Host,

@@ -40,9 +40,9 @@ function ActivityIntro(props) {
           </p>
           <p>
             We are interested in how people think about distributing
-            money—whether to keep it, share it, or donate it—and how these
-            choices are shaped through discussion. Your insights will help us
-            better understand attitudes toward charitable giving and financial
+            money—whether to keep it or donate it—and how these choices are
+            shaped through discussion. Your insights will help us better
+            understand attitudes toward charitable giving and financial
             decision-making.
           </p>
         </div>

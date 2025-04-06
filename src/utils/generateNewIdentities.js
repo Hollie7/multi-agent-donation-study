@@ -1,5 +1,3 @@
-import OpenAI from "openai";
-import { useRef } from "react";
 import openai from "../services/openaiClient.js";
 
 async function generateNewIdentities(userData, prompt, selectedOccupations) {
@@ -11,7 +9,7 @@ async function generateNewIdentities(userData, prompt, selectedOccupations) {
 
   // 创建请求
   const req = {
-    model: "gpt-3.5-turbo", // 使用已知存在且有权限的模型名称
+    model: "gpt-3.5-turbo",
     messages: [
       {
         role: "system",

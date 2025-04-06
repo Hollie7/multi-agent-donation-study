@@ -33,7 +33,6 @@
   width: 100%; /* 确保标题占据整个宽度 */
 }
 
-
 /* 关闭按钮的样式 */
 .willingness-modal-close-icon {
   cursor: pointer;
@@ -75,4 +74,12 @@
 
 .willingness-modal button:hover {
   background-color: #45a049;
+}
+
+.highlight-keyword {
+  color: #d32f2f; /* 深红色强调 */
+  font-weight: bold;
+  background-color: #fff3e0; /* 柔和橙色背景 */
+  padding: 0 4px;
+  border-radius: 4px;
 }

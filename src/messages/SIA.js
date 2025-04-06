@@ -148,7 +148,7 @@ export const message1BotGroups_SIA = [
       {
         id: 14,
         content: (name, botsProfile, donationAmount_first) =>
-          `By the way, at any time in the conversation, you can click on the icon of the AI agent to learn more about it.`,
+          `By the way, at any time in the conversation, you can click on the avatar of the AI agent to learn more about it.`,
         sender: EntityType.Host,
         senderName: "Host",
         type: MessageType.Message,
@@ -256,7 +256,7 @@ export const message1BotGroups_SIA = [
       {
         id: 25,
         content: (name, botsProfile, donationAmount_first) =>
-          `Based on ${name}'s performance, ${name} has earned a $3 bonus.`,
+          `Based on ${name}'s performance, ${name} has earned a $3 payment.`,
         sender: EntityType.Host,
         senderName: "Host",
         type: MessageType.Message,

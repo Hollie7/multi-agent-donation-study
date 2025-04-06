@@ -60,9 +60,10 @@
 /* 中心文本描述 */
 .donation-amount-modal p {
   font-size: 14px;
-  text-align: center;
+  text-align: left;
   margin: 10px 0;
   color: #555;
+  line-height: 1.8;
 }
 
 /* Slider 容器，居中显示 */
