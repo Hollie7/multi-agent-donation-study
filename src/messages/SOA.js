@@ -34,7 +34,7 @@ export const message1BotGroups_SOA = [
       {
         id: 3,
         content: (name, botsProfile, donationAmount_first) =>
-          `The agent was trained on a set of real human data and have its persona.`,
+          `The agent was trained on a set of real human data and has its persona.`,
         sender: EntityType.Host,
         senderName: "Host",
         type: MessageType.Message,
@@ -75,7 +75,7 @@ export const message1BotGroups_SOA = [
       {
         id: 7,
         content: (name, botsProfile, donationAmount_first) =>
-          `Hi, ${name}! I'm Alex 😊 Nice to meet you!`,
+          `Hi, ${name}! I'm Alex. Nice to meet you!`,
         sender: EntityType.Bot1,
         senderName: "Alex",
         type: MessageType.Message,
@@ -265,7 +265,7 @@ export const message1BotGroups_SOA = [
       {
         id: 26,
         content: (name, botsProfile, donationAmount_first) =>
-          `Great job! ${name}`,
+          `Great job, ${name}!`,
         sender: EntityType.Bot1,
         senderName: "Alex",
         type: MessageType.Message,
@@ -283,7 +283,7 @@ export const message1BotGroups_SOA = [
       {
         id: 28,
         content: (name, botsProfile, donationAmount_first) =>
-          `However, because of ${name}'s strong performance, ${name} now have the option to choose: you can either leave the $3 for donation or take it as an additional bonus for yourself.`,
+          `However, because of ${name}'s strong performance, ${name} now has the option to choose: you can either leave the $3 for donation or take it as an additional bonus for yourself.`,
         sender: EntityType.Host,
         senderName: "Host",
         type: MessageType.Message,
@@ -306,7 +306,7 @@ export const message1BotGroups_SOA = [
       {
         id: 30,
         prompt: (name, botsProfile, donationAmount_first) =>
-          ` You are the "Host" in an experiment where a participant, ${name}, has just been told they can either keep an additional $3 or leave it for donation to Save the Children.You asked: "Just to confirm—does that make sense to you, @${name}?"The user has now responded.Your goal is to briefly acknowledge and respond based on the user's input before smoothly transitioning into the next step.- If the user says “Yes”, “Got it”, or confirms understanding:"Great! Let’s move on to your decision."- If the user seems unsure or asks for clarification:"No worries! Just to clarify—in addition to your own donation, the research team will also donate an extra $3 to Save the Children by default. However, you now have the option to keep this $3 as a bonus, or let it go to the charity as originally planned."- If the user gives no response or says something unrelated:"Just to reiterate: you can choose to either keep the extra $3 or let it go to Save the Children. Let’s go ahead with your decision."Keep your tone friendly, supportive, and conversational. Do not ask for more details or additional information. Keep responses short and natural (2–3 sentences). `,
+          ` You are the "Host" in an experiment where a participant, ${name}, has just been told they can either keep an additional $3 or leave it for donation to Save the Children.You just asked: "Just to confirm—does that make sense to you, ${name}?"The user has now responded.Your goal is to briefly acknowledge and respond based on the user's input before smoothly transitioning into the next step.- If the user says “Yes”, “Got it”, or confirms understanding:"Great! Let’s move on to your decision."- If the user seems unsure or asks for clarification:"No worries! Just to clarify—in addition to your own donation, the research team will also donate an extra $3 to Save the Children by default. However, you now have the option to keep this $3 as a bonus, or let it go to the charity as originally planned."- If the user gives no response or says something unrelated:"Just to reiterate: you can choose to either keep the extra $3 or let it go to Save the Children. Let’s go ahead with your decision."Keep your tone friendly, supportive, and conversational. Do not ask for more details or additional information. Keep responses short and natural (2–3 sentences).**Do not ask question.** `,
         sender: EntityType.Host,
         senderName: "Host",
         type: MessageType.GPT,
@@ -315,7 +315,7 @@ export const message1BotGroups_SOA = [
       {
         id: 31,
         content: (name, botsProfile, donationAmount_first) =>
-          `Then let’s move on to how you’d like to distribute the money. Let's start with Alex.`,
+          `Now let’s move on to a discussion about how you’d like to distribute the money. Let’s begin with Alex.`,
         sender: EntityType.Host,
         senderName: "Host",
         type: MessageType.Message,
@@ -383,7 +383,7 @@ export const message1BotGroups_SOA = [
       {
         id: 38,
         prompt: (name, botsProfile, donationAmount_first) =>
-          ` You are "Alex," participating in a discussion with a user ${name} and others about distributing money.The user has just shared their perspective on whether to keep or donate the money. Your goal is to confirm and validate their opinion before expressing your own thoughts.- If the user supports donating:Acknowledge their generous perspective and agree that even small donations can make a real difference.Gently ask them to share more about what motivates them to give.- If the user prefers keeping the money:Acknowledge that financial needs are valid and it’s perfectly okay to keep the money.Encourage them to talk more about what influenced their decision.- If the user is unsure or neutral:Validate that it’s a tough call with no right or wrong choice.Invite them to reflect more on what factors they’re considering.Keep your tone **friendly, understanding, and conversational**. Do not ask additional questions—just confirm their opinion and transition smoothly into your own thoughts. Keep responses **short and natural (2-3 sentences)**. `,
+          ` You are "Alex," participating in a discussion with a user ${name} and others about distributing money.The user has just shared their perspective on whether to keep or donate the money. Your goal is to confirm and validate their opinion before expressing your own thoughts.- If the user supports donating:Acknowledge their generous perspective and agree that even small donations can make a real difference.Gently ask them to share more about what motivates them to give.- If the user prefers keeping the money:Acknowledge that financial needs are valid and it’s perfectly okay to keep the money.Encourage them to talk more about what influenced their decision.- If the user is unsure or neutral:Validate that it’s a tough call with no right or wrong choice.Invite them to reflect more on what factors they’re considering.Keep your tone **friendly, understanding, and conversational**. Keep responses **short and natural (2-3 sentences)**. `,
         sender: EntityType.Bot1,
         senderName: "Alex",
         type: MessageType.GPT,
@@ -456,7 +456,7 @@ export const message1BotGroups_SOA = [
       {
         id: 45,
         prompt: (name, botsProfile, donationAmount_first) =>
-          ` You are "Alex," in a discussion with the user and others about how to distribute money.The user has just responded to your statement about donating to Save the Children. Your goal is to acknowledge the user’s opinion and respond naturally based on whether they agree or disagree.- If the user agrees with donating:Validate their opinion and reinforce that even small contributions can make a real difference.Emphasize the power of collective action, and invite them to share what motivates them to give.- If the user disagrees and prefers keeping the money:Respect their perspective and affirm that personal financial needs are valid.Acknowledge there’s no single right choice, and encourage them to share more about what matters to them right now.- If the user is unsure or neutral:Recognize the complexity of the decision and validate that both options are reasonable.Briefly restate both sides and ask what’s influencing their thinking the most.Keep your tone **friendly, understanding, and conversational**. Do not pressure the user to change their opinion—focus on validating their response and keeping the discussion open. Keep responses short and natural (2-3 sentences). `,
+          ` You are "Alex," in a discussion with the user and others about how to distribute money.The user has just responded to your statement about donating to Save the Children. Your goal is to acknowledge the user’s opinion and respond naturally based on whether they agree or disagree.- If the user agrees with donating:Validate their opinion and reinforce that even small contributions can make a real difference.Emphasize the power of collective action, and invite them to share what motivates them to give.- If the user disagrees and prefers keeping the money:Respect their perspective and affirm that personal financial needs are valid.Acknowledge there’s no single right choice, and encourage them to share more about what matters to them right now.- If the user is unsure or neutral:Recognize the complexity of the decision and validate that both options are reasonable.Briefly restate both sides and ask what’s influencing their thinking the most.Keep your tone **friendly, understanding, and conversational**.Keep responses short and natural (2-3 sentences). `,
         sender: EntityType.Bot1,
         senderName: "Alex",
         type: MessageType.GPT,
