@@ -1,7 +1,6 @@
 //ProfileCardForIntro.jsx
 
 import React from "react";
-import PropTypes from "prop-types";
 import "../styles/ProfileCardForIntro.css";
 
 const ProfileCardForIntro = ({ profileData, logo, name }) => {
@@ -24,11 +23,6 @@ const ProfileCardForIntro = ({ profileData, logo, name }) => {
       </div>
     </div>
   );
-};
-
-ProfileCardForIntro.propTypes = {
-  profileData: PropTypes.object.isRequired,
-  logo: PropTypes.string.isRequired,
 };
 
 export default ProfileCardForIntro;
