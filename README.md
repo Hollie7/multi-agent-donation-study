@@ -18,7 +18,6 @@ To run this project locally or deploy it yourself, make sure to configure the fo
 Create a `.env` file in your project root and include:
 
 ```env
-VITE_OPENAI_API=your_openai_api_key
 VITE_FIREBASE_API_KEY=your_firebase_api_key
 VITE_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
 VITE_FIREBASE_PROJECT_ID=your_project_id
