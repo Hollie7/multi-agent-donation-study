@@ -175,7 +175,7 @@ export const message5BotGroups_MIA = [
       {
         id: 17,
         content: (name, botsProfile, donationAmount_first) =>
-          `Oh wow, that’s interesting! We actually have a lot in common. My field is quite similar to yours.`,
+          `Oh wow, that’s interesting! We actually have a lot in common. My field is quite similar to yours`,
         sender: EntityType.Bot2,
         senderName: "Jordan",
         type: MessageType.Message,
@@ -184,7 +184,7 @@ export const message5BotGroups_MIA = [
       {
         id: 18,
         content: (name, botsProfile, donationAmount_first) =>
-          `That’s great! I love hearing from people in similar fields. It really helps us connect and understand each other better.`,
+          `That’s great. I love hearing from people in similar fields. It really helps us connect and understand each other better`,
         sender: EntityType.Bot4,
         senderName: "Morgan",
         type: MessageType.Message,
@@ -202,7 +202,7 @@ export const message5BotGroups_MIA = [
       {
         id: 20,
         content: (name, botsProfile, donationAmount_first) =>
-          `By the way, at any time in the conversation, you can click on the avatar of each agent to learn more about them.`,
+          `By the way, at any time in the conversation, you can click on the avatar of each agent to learn more about them`,
         sender: EntityType.Host,
         senderName: "Host",
         type: MessageType.Message,
@@ -214,7 +214,7 @@ export const message5BotGroups_MIA = [
         sender: EntityType.Host,
         senderName: "Host",
         type: MessageType.Message,
-        delay: 5,
+        delay: 8.0,
       },
       {
         id: 22,
@@ -228,7 +228,7 @@ export const message5BotGroups_MIA = [
       {
         id: 23,
         content: (name, botsProfile, donationAmount_first) =>
-          `Climate change has brought varying degrees of impact on people's lives around the world.`,
+          `Around the world, children are growing up in unimaginable situations... war, disasters, extreme poverty`,
         sender: EntityType.Host,
         senderName: "Host",
         type: MessageType.Message,
@@ -237,7 +237,7 @@ export const message5BotGroups_MIA = [
       {
         id: 24,
         content: (name, botsProfile, donationAmount_first) =>
-          `Let's discuss how Climate change is affecting children globally`,
+          `Let’s talk about how these crises, including war and climate change, are affecting children today`,
         sender: EntityType.Host,
         senderName: "Host",
         type: MessageType.Message,
@@ -269,7 +269,7 @@ export const message5BotGroups_MIA = [
       {
         id: 27,
         content: (name, botsProfile, donationAmount_first) =>
-          `In fact, I feel that natural disasters caused by climate change have the greatest impact on children.`,
+          `It’s heartbreaking. Children are often the first to suffer when crises hit, whether it’s war or natural disasters`,
         sender: EntityType.Bot1,
         senderName: "Alex",
         type: MessageType.Message,
@@ -278,7 +278,7 @@ export const message5BotGroups_MIA = [
       {
         id: 28,
         content: (name, botsProfile, donationAmount_first) =>
-          `Yeah, it's crazy! Floods, droughts... kids are suffering the most 💔`,
+          `Yeah, it’s devastating 😢 War zones, floods, hunger... kids lose their homes, schools, even families`,
         sender: EntityType.Bot3,
         senderName: "Taylor",
         type: MessageType.Message,
@@ -287,7 +287,7 @@ export const message5BotGroups_MIA = [
       {
         id: 29,
         content: (name, botsProfile, donationAmount_first) =>
-          `Yeah, I am watching the news`,
+          `I was just reading a story about children in Gaza and Sudan`,
         sender: EntityType.Bot4,
         senderName: "Morgan",
         type: MessageType.Message,
@@ -296,7 +296,7 @@ export const message5BotGroups_MIA = [
       {
         id: 30,
         content: (name, botsProfile, donationAmount_first) =>
-          `So many kids are facing survival problems because of those catastrophes...`,
+          `No child should go through that`,
         sender: EntityType.Bot4,
         senderName: "Morgan",
         type: MessageType.Message,
@@ -305,7 +305,7 @@ export const message5BotGroups_MIA = [
       {
         id: 31,
         content: (name, botsProfile, donationAmount_first) =>
-          `I wish I could help, I once volunteered at a food bank, helping pack meals for families.`,
+          `I once volunteered at a food bank. It made me realize how important even small help can be`,
         sender: EntityType.Bot4,
         senderName: "Morgan",
         type: MessageType.Message,
@@ -314,7 +314,7 @@ export const message5BotGroups_MIA = [
       {
         id: 32,
         content: (name, botsProfile, donationAmount_first) =>
-          `Have you heard of 'Save the Children'?`,
+          `Have you heard of Save the Children? `,
         sender: EntityType.Bot5,
         senderName: "Casey",
         type: MessageType.Message,
@@ -323,7 +323,7 @@ export const message5BotGroups_MIA = [
       {
         id: 33,
         content: (name, botsProfile, donationAmount_first) =>
-          `This charity is doing a lot to help the children `,
+          `They’re working in many of these crisis zones. They help kids get access to food, education, and safety, even in war zones and refugee camps`,
         sender: EntityType.Bot5,
         senderName: "Casey",
         type: MessageType.Message,
@@ -332,7 +332,7 @@ export const message5BotGroups_MIA = [
       {
         id: 34,
         content: (name, botsProfile, donationAmount_first) =>
-          `Yeah, actually I donated before to \"Save the Children\" and helped provide clothes and books for kids in remote areas.`,
+          `Yeah, I donated to them last year. They sent books and clothes to kids affected by war`,
         sender: EntityType.Bot3,
         senderName: "Taylor",
         type: MessageType.Message,
@@ -350,7 +350,7 @@ export const message5BotGroups_MIA = [
       {
         id: 36,
         content: (name, botsProfile, donationAmount_first) =>
-          `It's amazing to see people like you stepping up to help! 👏`,
+          `It really gives hope when we see people helping. 👏`,
         sender: EntityType.Bot5,
         senderName: "Casey",
         type: MessageType.Message,
@@ -359,7 +359,7 @@ export const message5BotGroups_MIA = [
       {
         id: 37,
         prompt: (name, botsProfile, donationAmount_first) =>
-          ` [You are Jordan, you are a ${botsProfile.Bot2.occupation}. Based on your background, please tell how climate issues impact children's health and education,show the linkage between your occupation and the topic, transit smoothly. Your script needs to be casual and engaging, showing emotional connection between participants, not more than 20 words.] `,
+          ` [You are Jordan, you are a ${botsProfile.Bot2.occupation}. Based on your background, please tell how war or climate issues impact children's health and education,show the linkage between your occupation and the topic, transit smoothly. Your script needs to be casual and engaging, showing emotional connection between participants, not more than 20 words.] `,
         sender: EntityType.Bot2,
         senderName: "Jordan",
         type: MessageType.GPT,
@@ -461,7 +461,7 @@ export const message5BotGroups_MIA = [
       {
         id: 48,
         content: (name, botsProfile, donationAmount_first) =>
-          `Same here! Let's come up with a catchy hashtag 📝`,
+          `Same here! Let's come up with a catchy hashtag`,
         sender: EntityType.Bot4,
         senderName: "Morgan",
         type: MessageType.Message,
@@ -511,7 +511,7 @@ export const message5BotGroups_MIA = [
       {
         id: 53,
         content: (name, botsProfile, donationAmount_first) =>
-          `It's inspiring to see so much enthusiasm for helping children.`,
+          `It's inspiring to see so much enthusiasm for helping children`,
         sender: EntityType.Host,
         senderName: "Host",
         type: MessageType.Message,
@@ -520,7 +520,7 @@ export const message5BotGroups_MIA = [
       {
         id: 54,
         content: (name, botsProfile, donationAmount_first) =>
-          `Actually, one of the most common ways to support children in need is through donations.`,
+          `Actually, one of the most common ways to support children in need is through donations`,
         sender: EntityType.Host,
         senderName: "Host",
         type: MessageType.Message,
@@ -538,7 +538,7 @@ export const message5BotGroups_MIA = [
       {
         id: 56,
         content: (name, botsProfile, donationAmount_first) =>
-          `@${name}, have you helped children in other ways?`,
+          `@${name}, have you donated to children before?`,
         sender: EntityType.Bot2,
         senderName: "Jordan",
         type: MessageType.Message,
@@ -561,7 +561,7 @@ export const message5BotGroups_MIA = [
       {
         id: 58,
         content: (name, botsProfile, donationAmount_first) =>
-          `Hi @${name}, Are you aware of the dangerous situations children face in conflicted areas?`,
+          `Hi @${name}, are you aware of the dangerous situations children face in conflicted areas?`,
         sender: EntityType.Bot1,
         senderName: "Alex",
         type: MessageType.Message,
@@ -630,7 +630,7 @@ export const message5BotGroups_MIA = [
       {
         id: 64,
         prompt: (name, botsProfile, donationAmount_first) =>
-          ` [Pretend you are ‘Taylor’. You share a different background with the User in age, occupation, ethnicity and gender.  Your details are as follows: occupation is ${botsProfile.Bot3.occupation}, your age is ${botsProfile.Bot3.ageRange}, your gender is ${botsProfile.Bot3.gender}, your ethnicity is ${botsProfile.Bot3.race}. Craft a story or detail that logically leads to your decision to donate to Save the Children. The story should seamlessly connect to the statement 'I will donate to Save the Children myself.' The transition should feel natural and the entire message should not exceed 25 words.] `,
+          ` [Pretend you are ‘Taylor’. You share a different background with the User in age, occupation, ethnicity and gender.  Your details are as follows: occupation is ${botsProfile.Bot3.occupation}, your age is ${botsProfile.Bot3.ageRange}, your gender is ${botsProfile.Bot3.gender}, your ethnicity is ${botsProfile.Bot3.race}. Craft a story or detail that logically leads to your decision to donate to Save the Children. The story should seamlessly connect to the statement 'I will donate my full $3 bonus to Save the Children.' The transition should feel natural and the entire message should not exceed 35 words.] `,
         sender: EntityType.Bot3,
         senderName: "Taylor",
         type: MessageType.GPT,
@@ -639,7 +639,7 @@ export const message5BotGroups_MIA = [
       {
         id: 65,
         content: (name, botsProfile, donationAmount_first) =>
-          `I’m matching your donation, @Taylor, because together, we can do much more.`,
+          `I’m matching your donation, @Taylor. If you’re donating all $3, I will too`,
         sender: EntityType.Bot4,
         senderName: "Morgan",
         type: MessageType.Message,
@@ -648,52 +648,52 @@ export const message5BotGroups_MIA = [
       {
         id: 66,
         content: (name, botsProfile, donationAmount_first) =>
-          `Yeah~ Thank you very much Morgan🤝!`,
+          `Double impact, double hope!`,
+        sender: EntityType.Bot4,
+        senderName: "Morgan",
+        type: MessageType.Message,
+        delay: 5,
+      },
+      {
+        id: 67,
+        content: (name, botsProfile, donationAmount_first) =>
+          `Thank you so much, Morgan! 🤝 Every bit counts when we act together`,
         sender: EntityType.Bot3,
         senderName: "Taylor",
         type: MessageType.Message,
         delay: 5,
       },
       {
-        id: 67,
+        id: 68,
         prompt: (name, botsProfile, donationAmount_first) =>
-          ` Pretend you are ‘Casey’.You share a different background with the User in age, occupation, ethnicity and gender. Your details are as follows: occupation is ${botsProfile.Bot5.occupation}, your age is ${botsProfile.Bot5.ageRange}, your gender is ${botsProfile.Bot5.gender}, your ethnicity is ${botsProfile.Bot5.race}. Use these details to create a deeply personal story that reflects your compassion and connection to charity. Specifically, talk about how a significant event or realization in your life, such as a family moment or personal challenge, inspired you to give up sth to make charity donations a few years ago. Make sure to express your emotions and how this decision brought fulfillment. Keep the story under 30 words. `,
+          ` Pretend you are ‘Casey’. You share a different background with the User in age, occupation, ethnicity and gender. Your details are as follows: occupation is ${botsProfile.Bot5.occupation}, your age is ${botsProfile.Bot5.ageRange}, your gender is ${botsProfile.Bot5.gender}, your ethnicity is ${botsProfile.Bot5.race}. Use these details to create a deeply personal story that reflects your compassion and connection to charity. Specifically, talk about how a significant event or realization in your life, such as a family moment or personal challenge, inspired you to give up sth to make charity donations a few years ago. Make sure to express your emotions and how this decision brought fulfillment. Keep the story under 40 words. `,
         sender: EntityType.Bot5,
         senderName: "Casey",
         type: MessageType.GPT,
         delay: 5,
       },
       {
-        id: 68,
+        id: 69,
         content: (name, botsProfile, donationAmount_first) =>
-          `That's such a touching story, Casey! Thank you for sharing it with us.`,
+          `That's such a touching story, Casey! Thank you for sharing it with us`,
         sender: EntityType.Host,
         senderName: "Host",
         type: MessageType.Message,
         delay: 5,
       },
       {
-        id: 69,
+        id: 70,
         content: (name, botsProfile, donationAmount_first) =>
-          `Thank you everyone for such an engaging discussion and for sharing your thoughts and questions!`,
+          `And thank you all—your willingness to give and support these children is truly inspiring`,
         sender: EntityType.Host,
         senderName: "Host",
         type: MessageType.Message,
         delay: 4.0,
       },
       {
-        id: 70,
-        content: (name, botsProfile, donationAmount_first) =>
-          `It’s been wonderful talking with all of you.`,
-        sender: EntityType.Host,
-        senderName: "Host",
-        type: MessageType.Message,
-        delay: 5,
-      },
-      {
         id: 71,
         content: (name, botsProfile, donationAmount_first) =>
-          `Hi, ${name}, I’d like to revisit the topic of donations.`,
+          `It’s been wonderful talking with all of you`,
         sender: EntityType.Host,
         senderName: "Host",
         type: MessageType.Message,
@@ -702,7 +702,7 @@ export const message5BotGroups_MIA = [
       {
         id: 72,
         content: (name, botsProfile, donationAmount_first) =>
-          `I notice that you donated $${donationAmount_first} before. `,
+          `Hi, ${name}, I’d like to revisit the topic of donations`,
         sender: EntityType.Host,
         senderName: "Host",
         type: MessageType.Message,
@@ -711,7 +711,7 @@ export const message5BotGroups_MIA = [
       {
         id: 73,
         content: (name, botsProfile, donationAmount_first) =>
-          `Now we want to confirm this amount.`,
+          `I notice that you donated $${donationAmount_first} before. `,
         sender: EntityType.Host,
         senderName: "Host",
         type: MessageType.Message,
@@ -720,7 +720,7 @@ export const message5BotGroups_MIA = [
       {
         id: 74,
         content: (name, botsProfile, donationAmount_first) =>
-          `If you are willing, would you consider donating more to further help the cause to support the Children today?`,
+          `Now we want to confirm this amount`,
         sender: EntityType.Host,
         senderName: "Host",
         type: MessageType.Message,
@@ -729,7 +729,7 @@ export const message5BotGroups_MIA = [
       {
         id: 75,
         content: (name, botsProfile, donationAmount_first) =>
-          `Please confirm the final donation amount below.`,
+          `If you are willing, would you consider donating more to further help the cause to support the children today?`,
         sender: EntityType.Host,
         senderName: "Host",
         type: MessageType.Message,
@@ -737,6 +737,15 @@ export const message5BotGroups_MIA = [
       },
       {
         id: 76,
+        content: (name, botsProfile, donationAmount_first) =>
+          `Please confirm the final donation amount below`,
+        sender: EntityType.Host,
+        senderName: "Host",
+        type: MessageType.Message,
+        delay: 5,
+      },
+      {
+        id: 77,
         content: (name, botsProfile, donationAmount_first) => ``,
         sender: EntityType.Host,
         senderName: "Host",
@@ -749,16 +758,16 @@ export const message5BotGroups_MIA = [
     step: 12,
     messages: [
       {
-        id: 77,
+        id: 78,
         content: (name, botsProfile, donationAmount_first) =>
-          `That will be all for us today.`,
+          `That will be all for us today`,
         sender: EntityType.Host,
         senderName: "Host",
         type: MessageType.Message,
         delay: 4.0,
       },
       {
-        id: 78,
+        id: 79,
         content: (name, botsProfile, donationAmount_first) =>
           `${name}, please close this window, return to the survey and enter this Code: AIM`,
         sender: EntityType.Host,
