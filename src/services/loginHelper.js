@@ -12,7 +12,6 @@ export async function checkDemographicExists(userId) {
 
 export async function checkBotProfilesExist(userId) {
   const bots = await loadBotProfiles(userId);
-  console.log(bots && Object.keys(bots).length > 0);
   return bots && Object.keys(bots).length > 0;
 }
 

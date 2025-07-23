@@ -50,8 +50,6 @@ function LoginPage(props) {
       createdAt: timestamp,
     };
 
-    console.log("Attempting to write user state:", metaData);
-
     try {
       await writeUserMetaState(id, metaData);
       console.log("Firestore write successful");
