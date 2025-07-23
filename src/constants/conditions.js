@@ -1,10 +1,10 @@
 export const CODE_MAP = {
-  MIA: 0,
-  MIS: 1,
-  MOA: 2,
-  MOS: 3,
-  SIA: 4,
-  SIS: 5,
-  SOA: 6,
-  SOS: 7,
+  FLC: 0,
+  FLF: 1,
+  CEC: 2,
+  CEF: 3,
+  SLC: 4,
+  // SIS: 5,
+  // SOA: 6,
+  // SOS: 7,
 };

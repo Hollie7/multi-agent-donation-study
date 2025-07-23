@@ -8,22 +8,16 @@
 //   bot4Name,
 //   bot5Name,
 // } from "../constants/botNames";
-import { message1BotGroups_SIA } from "./SIA";
-import { message1BotGroups_SIS } from "./SIS";
-import { message1BotGroups_SOA } from "./SOA";
-import { message1BotGroups_SOS } from "./SOS";
-import { message5BotGroups_MIA } from "./MIA";
-import { message5BotGroups_MIS } from "./MIS";
-import { message5BotGroups_MOA } from "./MOA";
-import { message5BotGroups_MOS } from "./MOS";
+import { message5BotGroups_CEC } from "./CEC";
+import { message5BotGroups_CEF } from "./CEF";
+import { message5BotGroups_FLC } from "./FLC";
+import { message5BotGroups_FLF } from "./FLF";
+import { message1BotGroups_SLC } from "./SLC";
 
 export const messageGroupsAllBots = [
-  message5BotGroups_MIA,
-  message5BotGroups_MIS,
-  message5BotGroups_MOA,
-  message5BotGroups_MOS,
-  message1BotGroups_SIA,
-  message1BotGroups_SIS,
-  message1BotGroups_SOA,
-  message1BotGroups_SOS,
+  message5BotGroups_CEC,
+  message5BotGroups_CEF,
+  message5BotGroups_FLC,
+  message5BotGroups_FLF,
+  message1BotGroups_SLC,
 ];
