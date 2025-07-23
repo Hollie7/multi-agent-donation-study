@@ -1,22 +1,24 @@
-import openai from "./openaiClient";
-
+// openaiService.js
 export async function getGPTMessage(prompt, userMessage) {
   try {
-    const req = {
-      model: "gpt-4o",
-      messages: [
-        { role: "system", content: prompt },
-        { role: "user", content: userMessage.toString() },
-      ],
-      temperature: 0.01,
-      max_tokens: 200,
-    };
+    const response = await fetch("/api/gpt", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        model: "gpt-4o",
+        messages: [
+          { role: "system", content: prompt },
+          { role: "user", content: userMessage.toString() },
+        ],
+      }),
+    });
 
-    const response = await openai.chat.completions.create(req);
-    const response_content = response.choices[0].message.content;
-    return response_content;
+    const data = await response.json();
+    return data.choices[0].message.content;
   } catch (e) {
-    console.log("Error in getGPTMessage:", e);
-  } finally {
+    console.error("Error:", e);
+    return "Something went wrong.";
   }
 }

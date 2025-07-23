@@ -33,6 +33,7 @@ export async function loadBotProfiles(userId) {
     bots[doc.id] = doc.data();
   });
 
+  console.log("bots", bots);
   return bots;
 }
 

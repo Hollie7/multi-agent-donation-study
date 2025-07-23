@@ -41,19 +41,42 @@ function LoginPage(props) {
   }
 
   const handleLoginSubmit = async (id, name, code) => {
-    if (!checkLogin(id, name, code)) {
-      return;
-    }
+    if (!checkLogin(id, name, code)) return;
 
     const timestamp = new Date();
-    await writeUserMetaState(id, {
+    const metaData = {
       name,
       condition: code,
       createdAt: timestamp,
-    });
+    };
 
-    props.handleLogin(id, name, code);
+    console.log("Attempting to write user state:", metaData);
+
+    try {
+      await writeUserMetaState(id, metaData);
+      console.log("Firestore write successful");
+
+      props.handleLogin(id, name, code);
+    } catch (error) {
+      console.error("Firestore write failed:", error);
+      showSnackbar("Login failed. Please check your network or try again.");
+    }
   };
+
+  // const handleLoginSubmit = async (id, name, code) => {
+  //   if (!checkLogin(id, name, code)) {
+  //     return;
+  //   }
+
+  //   const timestamp = new Date();
+  //   await writeUserMetaState(id, {
+  //     name,
+  //     condition: code,
+  //     createdAt: timestamp,
+  //   });
+
+  //   props.handleLogin(id, name, code);
+  // };
 
   return (
     <div className="login-page-container">

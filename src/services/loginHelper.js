@@ -12,6 +12,7 @@ export async function checkDemographicExists(userId) {
 
 export async function checkBotProfilesExist(userId) {
   const bots = await loadBotProfiles(userId);
+  console.log(bots && Object.keys(bots).length > 0);
   return bots && Object.keys(bots).length > 0;
 }
 
@@ -37,9 +38,8 @@ export async function getLoginStatus(userId) {
   const hasBots = await checkBotProfilesExist(userId);
   if (!hasBots) {
     return {
-      message:
-        "You have completed the initial survey. Next, you'll meet your AI companions.",
-      page: "activityintro",
+      message: "Welcome! Please finish the survey to proceed to the next step",
+      page: "survey",
     };
   }
 
