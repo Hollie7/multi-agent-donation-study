@@ -1,7 +1,15 @@
 // api/gpt.js
 export default async function handler(req, res) {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+
+  if (req.method === "OPTIONS") {
+    return res.status(200).end();
+  }
+
   try {
-    const { messages, model = "gpt-4" } = req.body;
+    const { messages, model = "gpt-3.5-turbo" } = req.body;
 
     const openaiRes = await fetch(
       "https://api.openai.com/v1/chat/completions",
@@ -22,9 +30,16 @@ export default async function handler(req, res) {
 
     const data = await openaiRes.json();
 
+    if (data.error) {
+      console.error("OpenAI error:", data.error);
+      return res.status(500).json({ error: data.error });
+    }
+
     res.status(200).json(data);
   } catch (error) {
-    console.error("GPT API failed:", error);
-    res.status(500).json({ error: "GPT API failed", details: error.message });
+    console.error("Server error:", error);
+    res
+      .status(500)
+      .json({ error: "Internal server error", details: error.message });
   }
 }
