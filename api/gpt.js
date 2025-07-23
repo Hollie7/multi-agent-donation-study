@@ -1,4 +1,3 @@
-// api/gpt.js
 export default async function handler(req, res) {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS");
@@ -9,7 +8,19 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { messages, model = "gpt-3.5-turbo" } = req.body;
+    const body = await new Promise((resolve, reject) => {
+      let data = "";
+      req.on("data", (chunk) => (data += chunk));
+      req.on("end", () => {
+        try {
+          resolve(JSON.parse(data));
+        } catch (err) {
+          reject(err);
+        }
+      });
+    });
+
+    const { messages, model = "gpt-3.5-turbo" } = body;
 
     const openaiRes = await fetch(
       "https://api.openai.com/v1/chat/completions",
