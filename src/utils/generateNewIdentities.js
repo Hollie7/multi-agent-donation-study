@@ -23,18 +23,21 @@ async function generateNewIdentities(userData, prompt, selectedOccupations) {
   ];
 
   try {
-    const response = await fetch("/api/gpt", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        model: "gpt-3.5-turbo",
-        messages,
-        temperature: 0.7,
-        max_tokens: 500,
-      }),
-    });
+    const response = await fetch(
+      "https://user-study-eight.vercel.app/api/gpt",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          model: "gpt-3.5-turbo",
+          messages,
+          temperature: 0.7,
+          max_tokens: 500,
+        }),
+      }
+    );
 
     if (!response.ok) {
       const text = await response.text(); // 打印返回内容，方便调试
