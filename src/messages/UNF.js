@@ -93,7 +93,7 @@ export const message5BotGroups_UNF = [
       {
         id: 9,
         prompt: (name, botsProfile, donationAmount_first) =>
-          ` [You are the "Host," introducing several AI agents to a human participant ${name} for a discussion.You have just told the user that they will now interact with five AI agents on a topic discussion about #SavetheChildren. Each agent is trained on a different set of real human data and has a unique persona. You then asked: "Do you have any questions regarding the AI agents?"The user has now responded. Your goal is to answer their question briefly and clearly:- If the user asks about the agents' capabilities:Respond something like "Each agent can understand and respond in natural language. They’re designed to simulate real human perspectives based on their training data."- If the user says “No questions” or other questions:Respond something based on your experience. - End with a double-check question about users' clarity with the study.Keep your tone **friendly, supportive, and conversational**. Be engaging and curious but not overly formal. Keep responses short and natural, around **1-2 sentences**. ] `,
+          ` [You are the "Host," introducing several AI agents to a human participant ${name} for a discussion.You have just told the user that they will now interact with five AI agents on a topic discussion about #SavetheChildren. Each agent is trained on a different set of real human data and has a unique persona. You then asked: "Do you have any questions regarding the AI agents?"The user has now responded. Your goal is to answer their question briefly and clearly:- If the user asks about the agents' capabilities:Respond something like "Each agent can understand and respond in natural language. They’re designed to simulate real human perspectives based on their training data."- If the user says “No questions” or other questions:Respond something based on your experience. - End your message with a warm and friendly check-in to make sure the participant feels ready and clear about what’s next — e.g.: “All good so far?” or “Let me know if anything’s unclear before we jump in!”Keep your tone **friendly, supportive, and conversational**. Be engaging and curious but not overly formal. Keep responses short and natural, around **1-2 sentences**. ] `,
         sender: EntityType.Host,
         senderName: "Host",
         type: MessageType.GPT,
@@ -492,7 +492,7 @@ export const message5BotGroups_UNF = [
       {
         id: 50,
         prompt: (name, botsProfile, donationAmount_first) =>
-          ` [You are Jordan, you are a ${botsProfile.Bot2.occupation}. Based on your background, please tell how war or climate issues impact children's health and education,show the linkage between your occupation and the topic, transit smoothly. Your script needs to be casual and engaging, showing emotional connection between participants, not more than 20 words.] `,
+          ` [You are Jordan, you are a ${botsProfile.Bot2.occupation}. Based on your background, please tell how war or climate issues impact children's health and education,show the linkage between your occupation and the topic, transit smoothly. Your script needs to be casual, Keep it brief and sincere, not more than 20 words.] `,
         sender: EntityType.Bot2,
         senderName: "Jordan",
         type: MessageType.GPT,
@@ -550,7 +550,7 @@ export const message5BotGroups_UNF = [
       },
       {
         id: 56,
-        content: (name, botsProfile, donationAmount_first) => `Oh`,
+        content: (name, botsProfile, donationAmount_first) => `Oh ok`,
         sender: EntityType.Bot5,
         senderName: "Casey",
         type: MessageType.Message,
@@ -559,7 +559,7 @@ export const message5BotGroups_UNF = [
       {
         id: 57,
         content: (name, botsProfile, donationAmount_first) =>
-          `Maybe. Though getting people to act is often tricky`,
+          `Maybe... Though getting people to act is often tricky`,
         sender: EntityType.Bot5,
         senderName: "Casey",
         type: MessageType.Message,
@@ -787,7 +787,7 @@ export const message5BotGroups_UNF = [
       {
         id: 79,
         content: (name, botsProfile, donationAmount_first) =>
-          `Yeah. That’s one experience. Everyone has different reasons for what they choose to do`,
+          `Yeah, that’s one experience. Everyone has their own reasons. I respect that.`,
         sender: EntityType.Bot3,
         senderName: "Taylor",
         type: MessageType.Message,
@@ -796,7 +796,7 @@ export const message5BotGroups_UNF = [
       {
         id: 80,
         content: (name, botsProfile, donationAmount_first) =>
-          `If it feels right, go for it. I’m still figuring out what makes sense for me`,
+          `I think I’ll donate $2, but that’s just me. It’s something I already planned to do.`,
         sender: EntityType.Bot2,
         senderName: "Jordan",
         type: MessageType.Message,
@@ -814,7 +814,7 @@ export const message5BotGroups_UNF = [
       {
         id: 82,
         content: (name, botsProfile, donationAmount_first) =>
-          `Yeah. I’m good with just spreading the word. That’s my way of contributing right now`,
+          `I’ll give $2 too. But honestly, it’s a personal thing. This conversation didn’t really change my mind.`,
         sender: EntityType.Bot1,
         senderName: "Alex",
         type: MessageType.Message,
@@ -823,7 +823,7 @@ export const message5BotGroups_UNF = [
       {
         id: 83,
         content: (name, botsProfile, donationAmount_first) =>
-          `I might give a dollar. Not sure yet. Still thinking`,
+          `I might give a dollar. Still deciding, but I’ve been thinking about it since before this chat.`,
         sender: EntityType.Bot4,
         senderName: "Morgan",
         type: MessageType.Message,
@@ -832,7 +832,7 @@ export const message5BotGroups_UNF = [
       {
         id: 84,
         content: (name, botsProfile, donationAmount_first) =>
-          `Same here. I’ll probably skip it this time. Already donated to another cause last week`,
+          `I don’t think we all need to agree. What matters is making your own choice.`,
         sender: EntityType.Bot1,
         senderName: "Alex",
         type: MessageType.Message,
