@@ -11,6 +11,7 @@ function LoginPage(props) {
   const [id, setId] = useState("");
   const [name, setName] = useState("");
   const [code, setCode] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const { showSnackbar } = props;
 
   function checkLogin(id, name, code) {
@@ -51,30 +52,19 @@ function LoginPage(props) {
     };
 
     try {
-      await writeUserMetaState(id, metaData);
-      console.log("Firestore write successful");
+      setIsLoading(true);
+      showSnackbar(
+        "Checking your progress. Please wait for a few seconds",
+        "info"
+      );
 
+      await writeUserMetaState(id, metaData);
       props.handleLogin(id, name, code);
     } catch (error) {
       console.error("Firestore write failed:", error);
       showSnackbar("Login failed. Please check your network or try again.");
     }
   };
-
-  // const handleLoginSubmit = async (id, name, code) => {
-  //   if (!checkLogin(id, name, code)) {
-  //     return;
-  //   }
-
-  //   const timestamp = new Date();
-  //   await writeUserMetaState(id, {
-  //     name,
-  //     condition: code,
-  //     createdAt: timestamp,
-  //   });
-
-  //   props.handleLogin(id, name, code);
-  // };
 
   return (
     <div className="login-page-container">

@@ -5,10 +5,9 @@ import { Slider, Button } from "@mui/material";
 import { AuthContext } from "../contexts/contexts";
 import { writeUserDonation } from "../services/firebaseService";
 
-
 function CharityDonation(props) {
   const [donationAmount, setDonationAmount] = useState(0);
-  const [secondsLeft, setSecondsLeft] = useState(10); // Countdown seconds
+  const [secondsLeft, setSecondsLeft] = useState(5); // Countdown seconds
   const userId = useContext(AuthContext);
   const { showSnackbar } = props;
 
