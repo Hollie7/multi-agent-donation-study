@@ -195,7 +195,6 @@ function ChatWindow(props) {
 
       for (let j = 0; j < group.messages.length; j++) {
         const msg = group.messages[j];
-
         if (msg.type.name === "Message") {
           msgs.push({
             content: msg.content,

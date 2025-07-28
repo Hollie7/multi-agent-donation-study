@@ -7,7 +7,7 @@ import "../styles/DonationAmount.css";
 const DonationAmount = ({ handleSubmitRating }) => {
   const [donationAmount, setDonationAmount] = useState(0);
   const [showModal, setShowModal] = useState(true);
-  const [secondsLeft, setSecondsLeft] = useState(10);
+  const [secondsLeft, setSecondsLeft] = useState(5);
   const [isButtonEnabled, setIsButtonEnabled] = useState(false);
 
   useEffect(() => {

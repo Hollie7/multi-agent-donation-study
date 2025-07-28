@@ -5,10 +5,9 @@ import "../styles/WillingnessModal.css";
 import "../styles/DonationAmount.css";
 
 const WillingnessModal = ({ handleSubmitWillingness }) => {
-  const WAIT_SECONDS = 10;
   const [willingness, setWillingness] = useState(0);
   const [showModal, setShowModal] = useState(true);
-  const [secondsLeft, setSecondsLeft] = useState(WAIT_SECONDS);
+  const [secondsLeft, setSecondsLeft] = useState(5);
   const [isButtonEnabled, setIsButtonEnabled] = useState(false);
 
   useEffect(() => {

@@ -50,9 +50,8 @@ function SurveyPage(props) {
   async function generateBotIdentities(formData, code) {
     const selectedOccupations = new Set();
     const prompt =
-      Math.floor(code / 2) % 2 === 0
-        ? generateSimilarPrompt
-        : generateDifferentPrompt;
+      code % 2 === 0 ? generateSimilarPrompt : generateDifferentPrompt;
+    // const prompt = generateDifferentPrompt;
 
     const identities = {};
     for (let i = 0; i < botNames.length; i++) {

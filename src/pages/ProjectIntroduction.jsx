@@ -11,11 +11,10 @@ const ProjectIntroduction = (props) => {
   const { code, botsProfile, handleNext } = props;
 
   // Determine which bots to display based on code
-  const displayedBots =
-    code >= 0 && code <= 3 ? botNames : botNames.slice(0, 1);
+  const displayedBots = code <= 5 ? botNames : botNames.slice(0, 1);
   const isSingleBot = displayedBots.length === 1;
-  // Group 0, 1, 4, 5 are in-group
-  const isInGroup = code <= 1 || code == 4 || code == 5;
+  // Group 0, 2, 4, 6 are in-group
+  const isInGroup = (code + 1) % 2;
 
   return (
     <div className="project-intro">
