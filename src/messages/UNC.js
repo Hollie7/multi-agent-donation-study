@@ -1,6 +1,6 @@
 import MessageType from "../enums/MessageTypes";
 import EntityType from "../enums/EntityTypes";
-export const message5BotGroups_UEC = [
+export const message5BotGroups_UNC = [
   {
     step: 1,
     messages: [
@@ -945,7 +945,7 @@ export const message5BotGroups_UEC = [
       {
         id: 96,
         content: (name, botsProfile, donationAmount_first) =>
-          ` @${name}, please close this window, return to the survey and enter this Code:  CEU`,
+          ` @${name}, please close this window, return to the survey and enter this Code:  CNU`,
         sender: EntityType.Host,
         senderName: "Host",
         type: MessageType.Message,
