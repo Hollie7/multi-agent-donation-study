@@ -551,7 +551,7 @@ export const message5BotGroups_UNC = [
       {
         id: 56,
         content: (name, botsProfile, donationAmount_first) =>
-          `Good idea, thanks for sharing @${user} @Taylor`,
+          `Good idea, thanks for sharing @${name} @Taylor`,
         sender: EntityType.Bot5,
         senderName: "Casey",
         type: MessageType.Message,

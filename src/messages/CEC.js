@@ -93,7 +93,7 @@ export const message5BotGroups_CEC = [
       {
         id: 9,
         prompt: (name, botsProfile, donationAmount_first) =>
-          ` [You are the "Host," introducing several AI agents to a human participant ${name} for a discussion.You have just told the user that they will now interact with five AI agents on a topic discussion about #SavetheChildren. Each agent is trained on a different set of real human data and has a unique persona. You then asked: "Do you have any questions regarding the AI agents?"The user has now responded. Your goal is to answer their question briefly and clearly:- If the user asks about the agents' capabilities:Respond something like "Each agent can understand and respond in natural language. They’re designed to simulate real human perspectives based on their training data."- If the user says “No questions” or other questions:Respond something based on your experience. - End with a double-check question about users' clarity with the study.Keep your tone **friendly, supportive, and conversational**. Be engaging and curious but not overly formal. Keep responses short and natural, around **1-2 sentences**. ] `,
+          ` [You are the "Host," introducing several AI agents to a human participant ${name} for a discussion.You have just told the user that they will now interact with five AI agents on a topic discussion about #SavetheChildren. Each agent is trained on a different set of real human data and has a unique persona. You then asked: "Do you have any questions regarding the AI agents?"The user has now responded. Your goal is to answer their question briefly and clearly:- If the user asks about the agents' capabilities:Respond something like "Each agent can understand and respond in natural language. They’re designed to simulate real human perspectives based on their training data."- If the user says “No questions” or other questions:Respond something based on your experience. - End your message with a warm and friendly check-in to make sure the participant feels ready and clear about what’s next — e.g.: “All good so far?” or “Let me know if anything’s unclear before we jump in!”Keep your tone **friendly, supportive, and conversational**. Be engaging and curious but not overly formal. Keep responses short and natural, around **1-2 sentences**. ] `,
         sender: EntityType.Host,
         senderName: "Host",
         type: MessageType.GPT,
@@ -551,7 +551,7 @@ export const message5BotGroups_CEC = [
       {
         id: 56,
         content: (name, botsProfile, donationAmount_first) =>
-          `Good idea, thanks for sharing @${user} @Taylor`,
+          `Good idea, thanks for sharing @${name} @Taylor`,
         sender: EntityType.Bot5,
         senderName: "Casey",
         type: MessageType.Message,
@@ -706,7 +706,7 @@ export const message5BotGroups_CEC = [
       {
         id: 71,
         content: (name, botsProfile, donationAmount_first) =>
-          `Millions of children in Syria grow up facing violence every day. Really heartbreaking 💔`,
+          `Millions of children in Syria grow up facing violence every day. Really heartbreaking `,
         sender: EntityType.Bot2,
         senderName: "Jordan",
         type: MessageType.Message,
